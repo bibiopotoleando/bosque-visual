@@ -68,6 +68,7 @@
       border-left: 5px solid #9f7f5f;
       padding-left: 16px;
       background: rgba(255,255,255,.55);
+      margin: 20px 0;
     }
 
     .links {
@@ -93,6 +94,13 @@
       margin-top: 40px;
       color: #7a6250;
     }
+    
+    .command-desc {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.95em;
+      color: #5d4a3d;
+    }
   </style>
 </head>
 
@@ -104,7 +112,112 @@
   Colecciona árboles mientras estudias, completas pomodoros y participas en el chat ✨
 </div>
 
-<!-- TODO TU CONTENIDO IGUAL -->
+<section>
+  <h2>🌱 ¿Qué es el Bosque del canal?</h2>
+  <div class="card">
+    Es un sistema interactivo donde el tiempo que dedicamos a estudiar o trabajar se convierte en árboles reales en nuestra colección. Es un esfuerzo colectivo: cuando se planta un árbol, ¡todo el chat puede unirse a la plantación! Y puedes ver en la pantalla cómo va creciendo.
+  </div>
+</section>
+
+<section>
+  <h2>🚀 Cómo participar</h2>
+  
+  <div class="card">
+    <h3>1. El inicio de la plantación</h3>
+    Se iniciará el temporizador de estudio. En ese momento, aparecerá un mensaje en el chat indicando qué especie se va a plantar y cuántos minutos durará la sesión. Si el árbol no se elije con puntos (!elijoárbol), se plantará uno de la colección básica.
+  </div>
+
+  <div class="card">
+    <h3>2. ¡Únete al equipo!</h3>
+    Tienes un tiempo limitado (marcado por el bot) para unirte a la plantación. 
+    <br>
+    <code>!árbol</code> <span class="command-desc">Úsalo para entrar en la sesión actual y plantar tu propia semilla junto a todos.</span>
+  </div>
+
+  <div class="card">
+    <h3>3. Durante el estudio</h3>
+    Si llegas tarde o quieres saber cómo va el árbol, puedes usar:
+    <br><br>
+    <code>!infobosque o !plantando, </code> <span class="command-desc">que muestra la especie que está creciendo en ese momento.</span>
+  </div>
+</section>
+
+<section>
+  <h2>✅ Validación y Recompensas</h2>
+  <div class="important">
+    <strong>¡La honestidad es la base del bosque!</strong> Cuando el cronómetro llegue a cero, tendrás 2 minutos para confirmar si has cumplido tu objetivo.
+  </div>
+
+  <div class="card">
+    <code>!cumplido</code> <span class="command-desc">Confirma que has estado concentradx. Recibirás <strong>puntos del canal</strong> y, si el árbol es nuevo para ti, se añadirá a tu colección.</span>
+    <br>
+    <code>!fallé</code> <span class="command-desc">Si te has distraído demasiado o has abandonado la tarea, sé valiente y usa este comando. No recibirás recompensa esta vez, ¡pero lo lograremos en la próxima!</span>
+  </div>
+</section>
+  <section>
+  <h2>🌟 Árboles Premium (Comprados)</h2>
+  <div class="card premium-card">
+    Cuando un árbol es comprado por un usuario (Árbol Premium), las reglas cambian. No solo se trata de tu esfuerzo individual, sino de la <strong>responsabilidad grupal</strong>.
+    
+    <div class="important">
+      <strong>💰 Bonus Premium:</strong> Si el árbol crece con éxito, todos los que hayan cumplido recibirán puntos extra (aprox. el 20% del coste del árbol). Además, el <strong>comprador</strong> recibirá una <strong>Flor Especial</strong> aleatoria para su colección.
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>⚠️ La Regla del 20% (Fracaso Grupal)</h2>
+  <div class="card">
+    En las sesiones Premium, el bot vigila la concentración de toda la comunidad. 
+    <div class="fail-zone">
+      <strong>¿Qué pasa si el grupo falla?</strong><br>
+      Si más del <strong>20% de los participantes</strong> usan el comando <code>!fallé</code>, se considera un <strong>Fracaso Grupal</strong>.
+      <ul>
+        <li><strong>Participantes:</strong> Aunque tú hayas cumplido individualmente, si el grupo fracasa, <strong>no recibirás ni el árbol ni los puntos</strong>.</li>
+        <li><strong>El Comprador:</strong> Es el único que puede "salvar" su árbol. Si el comprador cumplió su parte, se llevará el árbol a su colección aunque el grupo haya fallado (pero no recibirá la flor extra).</li>
+      </ul>
+    </div>
+    <p style="margin-top:15px; font-size: 0.9em; color: #7a6250;"><i>Ejemplo: Si hay 10 personas y 3 fallan (30%), el árbol premium fracasa para todos excepto para el comprador.</i></p>
+  </div>
+</section>
+
+  <section>
+  <h2>🔍 Consultas de Colección <span class="badge">Nuevo</span></h2>
+  <div class="card">
+    Usa estos comandos para planificar tu próxima plantación:
+  </div>
+
+  <div class="card">
+    <code>!colecciones</code>
+    <span class="command-desc">
+      Muestra el listado de todas las colecciones disponibles (Básica, Japonesa, Oposiciones, etc.). 
+      Además, indica la <strong>recompensa en puntos</strong> al completar cada categoría.
+    </span>
+  </div>
+
+  <div class="card">
+    <code>!árboles [nombre_colección]</code>
+    <span class="command-desc">
+      Muestra los árboles específicos que componen la colección indicada. 
+      Por ejemplo: <code>!árboles japonesa</code>. El bot responderá con la lista de árboles y el <strong>coste individual en puntos</strong> para plantar cada uno.
+    </span>
+  </div>
+</section>
+
+<section>
+  <h2>🏆 Coleccionismo y Rankings</h2>
+  <div class="card">
+    Cada árbol que plantas se guarda en tu perfil. Existen 12 colecciones diferentes (Básica, Japonesa, Oposiciones...). ¿Podrás completarlas todas?
+  </div>
+
+  <div class="card">
+    <code>!bosquevisual</code> <span class="command-desc">Para que recibas un enlace directo al álbum visual para poder apreciar tu progreso global.¡Gastas esos puntos! Que es súper cuqui (los que están a color, ¡son los que tienes!).</span>
+    <br>
+    <code>!bosque</code> <span class="command-desc">Muestra tus estadísticas personales: cuántos árboles tienes y cuál es tu colección más avanzada.</span>
+    <br>
+    <code>!rankingbosque</code> <span class="command-desc">Mira quiénes son los guardabosques más aplicados del canal.</span>
+  </div>
+</section>
 
 <section>
   <h2>🔗 Guías relacionadas</h2>
@@ -165,5 +278,9 @@ https://bibiopotoleando.github.io/estados-y-bebidas/material.html
 </div>
 
 </main>
+</body>
+</html>
+
+
 </body>
 </html>
