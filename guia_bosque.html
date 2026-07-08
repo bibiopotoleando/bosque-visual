@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content = """<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -35,6 +35,279 @@
     }
 
     .subtitle {
+      text-align: center;
+      color: #7a6250;
+      margin-bottom: 32px;
+      font-size: 18px;
+    }
+
+    section {
+      margin-bottom: 34px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.78);
+      border-radius: 20px;
+      padding: 20px;
+      margin: 16px 0;
+      box-shadow: 0 4px 14px rgba(0,0,0,.05);
+    }
+
+    code {
+      background: #efe2d2;
+      padding: 3px 7px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    ul {
+      padding-left: 24px;
+    }
+
+    .important {
+      border-left: 5px solid #9f7f5f;
+      padding-left: 16px;
+      background: rgba(255,255,255,.55);
+      margin: 20px 0;
+    }
+
+    .premium-card {
+      border: 2px solid #d4af37;
+      background: linear-gradient(135deg, #fffcf0 0%, #fff9e6 100%);
+    }
+
+    .fail-zone {
+      border-left: 5px solid #e74c3c;
+      padding: 15px;
+      background: #fdf2f2;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .links {
+      background: rgba(120,160,255,0.08);
+      border: 2px solid rgba(120,160,255,0.4);
+      border-radius: 14px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    .links p {
+      margin-bottom: 14px;
+    }
+
+    .links a {
+      color: #5c7cff;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #7a6250;
+    }
+    
+    .command-desc {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.95em;
+      color: #5d4a3d;
+    }
+  </style>
+</head>
+
+<body>
+<main>
+
+<h1>🌳 Guía del Bosque Virtual</h1>
+<div class="subtitle">
+  Colecciona árboles interactivos mientras estudias, completas pomodoros y participas en el chat ✨
+</div>
+
+<section>
+  <h2>🌱 ¿Qué es el Bosque del canal?</h2>
+  <div class="card">
+    Es un sistema interactivo donde el tiempo que dedicamos a estudiar y mantener el enfoque se traduce en un bosque cooperativo visible en directo. Es un esfuerzo colectivo: cuando se abre una sesión de plantación en el descanso de estudio, ¡todo el chat puede unirse de forma cooperativa y ver en la pantalla cómo va creciendo desde una semilla!
+  </div>
+</section>
+
+<section>
+  <h2>🚀 Cómo participar</h2>
+  
+  <div class="card">
+    <h3>1. El inicio de la plantación</h3>
+    Al comenzar la sesión de estudio o Pomodoro, se abrirá el temporizador del minijuego. El bot enviará un mensaje indicando qué especie se plantará por defecto. Si un espectador ha canjeado previamente una categoría avanzada desde la tienda de Twitch, se plantará ese <strong>Árbol de Autor</strong> especial elegido.
+  </div>
+
+  <div class="card">
+    <h3>2. ¡Únete al equipo!</h3>
+    Tienes un tiempo límite de inscripción (marcado por la cuenta atrás en el overlay) para sumarte a la sesión actual:
+    <br><br>
+    <code>!árbol</code> <span class="command-desc">Úsalo en el chat para unirte a la plantación colectiva y aportar tu semilla al contador de participantes.</span>
+  </div>
+
+  <div class="card">
+    <h3>3. Monitoreo en directo</h3>
+    Si entraste tarde al stream o quieres saber los detalles de lo que está creciendo, puedes consultar:
+    <br><br>
+    <code>!infobosque</code> o <code>!plantando</code> <span class="command-desc">Muestra la especie del árbol que está en pantalla y cuántos guardabosques se han apuntado.</span>
+  </div>
+</section>
+
+<section>
+  <h2>✅ Validación y Crecimiento</h2>
+  <div class="important">
+    <strong>¡La honestidad es la base del bosque!</strong> Cuando el cronómetro de enfoque llegue a cero, el bot abrirá un periodo de validación de 2 minutos para confirmar tu sesión de estudio.
+  </div>
+
+  <div class="card">
+    <code>!cumplido</code> <span class="command-desc">Confirma que has completado tu tarea con éxito. Sumarás progreso en tus estadísticas y, si la especie de árbol es nueva para ti, se añadirá automáticamente a tu inventario.</span>
+    <br>
+    <code>!fallé</code> <span class="command-desc">Si te has distraído demasiado o tuviste que abandonar el escritorio, sé valiente y usa este comando. No habrá penalización, ¡y seguro que lo logramos en el próximo Pomodoro!</span>
+  </div>
+</section>
+
+<section>
+  <h2>🌟 Árboles de Autor (Tienda de Twitch)</h2>
+  <div class="card premium-card">
+    Cuando un espectador adquiere una categoría específica desde la tienda de puntos de canal (Árbol de Autor), las reglas evolucionan hacia la <strong>responsabilidad grupal</strong> y el compromiso de la comunidad.
+    
+    <div class="important">
+      <strong>🎁 Bonus Temático:</strong> Si el árbol de autor crece con éxito, todos los participantes que validen correctamente sumarán esa especie exótica a sus colecciones personales. ¡Una forma fantástica de desbloquear el catálogo avanzado gracias al canjeo de un compañero!
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>⚠️ La Regla del 20% (Fracaso Comunitario)</h2>
+  <div class="card">
+    En las sesiones cooperativas de los Árboles de Autor, el bot monitoriza la concentración global de la sala:
+    <div class="fail-zone">
+      <strong>¿Qué ocurre si el grupo se distrae?</strong><br>
+      Si más del <strong>20% de los usuarios apuntados</strong> utilizan el comando <code>!fallé</code>, la sesión se considerará un <strong>Fracaso Grupal</strong>.
+      <ul>
+        <li><strong>Participantes:</strong> Aunque tú hayas cumplido de forma individual, si el grupo en general fracasa, el árbol se marchitará y nadie recibirá la especie en su colección.</li>
+        <li><strong>El Comprador:</strong> Es el único que cuenta con protección de esfuerzo. Si el comprador validó con <code>!cumplido</code>, salvará el árbol para su propio inventario aunque el resto de la comunidad haya fallado.</li>
+      </ul>
+    </div>
+    <p style="margin-top:15px; font-size: 0.9em; color: #7a6250;"><i>Ejemplo: Si hay 10 personas inscritas y 3 de ellas fallan (30%), el árbol de autor se pierde para el chat excepto para el usuario que lo adquirió en la tienda.</i></p>
+  </div>
+</section>
+
+<section>
+  <h2>🔍 Consultas de Colección</h2>
+  <div class="card">
+    Usa estos comandos directamente en el chat para planificar tus objetivos y revisar qué árboles te faltan por conseguir:
+  </div>
+
+  <div class="card">
+    <code>!colecciones</code>
+    <span class="command-desc">
+      Muestra el listado completo de todas las categorías disponibles en el servidor (Básica, Española, Japonesa, Oposiciones...) y tu ratio de progreso actual en cada una de ellas.
+    </span>
+  </div>
+
+  <div class="card">
+    <code>!árboles [nombre_colección]</code>
+    <span class="command-desc">
+      Desglosa los nombres de las especies específicas que esconde una categoría concreta. Por ejemplo: <code>!árboles japonesa</code>. Úsalo para saber qué términos exactos introducir cuando canjees una recompensa en la tienda.
+    </span>
+  </div>
+</section>
+
+<section>
+  <h2>🏆 Coleccionismo y Rankings Visuales</h2>
+  <div class="card">
+    Cada espécimen que logres salvar se almacenará para siempre en tu base de datos de guardabosques. Existen 12 colecciones temáticas esperándote. ¿Lograrás completarlas todas?
+  </div>
+
+  <div class="card">
+    <code>!bosquevisual</code> o <code>!misárboles</code> <span class="command-desc">Genera tu enlace directo al álbum interactivo de la comunidad. Las tarjetas a todo color representan tus logros y las grises los desafíos pendientes.</span>
+    <br>
+    <code>!colecciones</code> <span class="command-desc">Despliega de un solo vistazo tus contadores históricos por categorías directamente en el chat.</span>
+    <br>
+    <code>!rankingbosque</code> <span class="command-desc">Consulta el top de los usuarios con los bosques más frondosos y variados del canal.</span>
+  </div>
+</section>
+
+<section>
+  <h2>🔗 Guías relacionadas</h2>
+
+  <div class="links">
+    <p>🌳 Bosque virtual:<br>
+      <a href="https://bibiopotoleando.github.io/bosque-visual/guia_bosque.html">https://bibiopotoleando.github.io/bosque-visual/guia_bosque.html</a>
+    </p>
+
+    <p>📝 Tareas:<br>
+      <a href="https://bibiopotoleando.github.io/guia-tareas/guia_tareas.html">https://bibiopotoleando.github.io/guia-tareas/guia_tareas.html</a>
+    </p>
+
+    <p>🎁 Canjeos:<br>
+      <a href="https://bibiopotoleando.github.io/guia-canjeos/guia_canjeos.html">https://bibiopotoleando.github.io/guia-canjeos/guia_canjeos.html</a>
+    </p>
+
+    <p>📌 Estados:<br>
+      <a href="https://bibiopotoleando.github.io/estados-y-bebidas/estados.html">https://bibiopotoleando.github.io/estados-y-bebidas/estados.html</a>
+    </p>
+
+    <p>☕ Bebidas:<br>
+      <a href="https://bibiopotoleando.github.io/estados-y-bebidas/bebidas.html">https://bibiopotoleando.github.io/estados-y-bebidas/bebidas.html</a>
+    </p>
+
+    <p>🎯 Retos:<br>
+      <a href="https://bibiopotoleando.github.io/retos/retos.html">https://bibiopotoleando.github.io/retos/retos.html</a>
+    </p>
+
+    <p>🎮 Minijuego:<br>
+      <a href="https://bibiopotoleando.github.io/minijuego-guia/index.html">https://bibiopotoleando.github.io/minijuego-guia/index.html</a>
+    </p>
+
+    <p>🏅 Insignias:<br>
+      <a href="https://bibiopotoleando.github.io/guia-insignias/guia_insignias.html">
+        https://bibiopotoleando.github.io/guia-insignias/guia_insignias.html
+      </a>
+    </p>
+
+    <p>📦 Material:<br>
+      <a href="https://bibiopotoleando.github.io/estados-y-bebidas/material.html">https://bibiopotoleando.github.io/estados-y-bebidas/material.html</a>
+    </p>
+  </div>
+</section>
+
+<div class="footer">
+  🌳 Gracias por estudiar con enfoque y hacer crecer el bosque del chat ✨
+</div>
+
+</main>
+</body>
+</html>
+"""
+
+import re
+# The requested URL to replace with
+insignias_url = "https://bibiopotoleando.github.io/guia-insignias/guia_insignias.html"
+
+# A regex to catch the old URL, even with slight variations if any exist
+old_url_pattern = r"https://bibiopotoleando\.github\.io/(insignias-visual|guia-insignias)/guia_insignias\.html"
+
+new_html_content = re.sub(old_url_pattern, insignias_url, html_content)
+
+# Add the Discord link block to the "Guías relacionadas" section if it's not already there
+discord_link_block = """
+    <p>👾 Discord:<br>
+      <a href="https://bibiopotoleando.github.io/discord/index.html">
+        https://bibiopotoleando.github.io/discord/index.html
+      </a>
+    </p>"""
+
+if "👾 Discord" not in new_html_content and '<div class="links">' in new_html_content:
+    new_html_content = new_html_content.replace('</div>\n</section>', f'{discord_link_block}\n  </div>\n</section>')
+
+with open('GITHUB_BOSQUE_LINKS_UPDATED.html', 'w', encoding='utf-8') as f:
+    f.write(new_html_content)
+
+print("[file-tag: GITHUB_BOSQUE_LINKS_UPDATED.html]")    .subtitle {
       text-align: center;
       color: #7a6250;
       margin-bottom: 32px;
