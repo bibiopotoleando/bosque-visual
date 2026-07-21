@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Bosque de supercactusvsopo</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        padding: 40px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #f5efe6;
+        color: #4b392c;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 42px;
+        margin: 20px 0 8px;
+    }
+
+    .subtitle {
+        color: #7a6250;
+        margin-bottom: 28px;
+    }
+
+    .collection {
+        max-width: 1100px;
+        margin: 0 auto 32px;
+        background: rgba(255,255,255,.58);
+        border-radius: 24px;
+        padding: 22px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    }
+
+    .collection.sub-collection {
+        border: 2px solid rgba(123,75,183,.28);
+        background: linear-gradient(
+            135deg,
+            rgba(255,255,255,.72),
+            rgba(240,231,255,.68)
+        );
+    }
+
+    .collection h2 {
+        text-align: left;
+        margin: 0 0 12px;
+        font-size: 24px;
+        text-transform: capitalize;
+    }
+
+    .collection-info {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+        color: #7a6250;
+        font-size: 14px;
+    }
+
+    .progress {
+        height: 12px;
+        background: rgba(75,57,44,.12);
+        border-radius: 999px;
+        overflow: hidden;
+        margin-bottom: 16px;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background: #9f7f5f;
+        border-radius: 999px;
+    }
+
+    .sub-collection .progress-bar {
+        background: #8b63ad;
+    }
+
+    .rule-box {
+        margin: 15px 0;
+        padding: 12px;
+        background: rgba(224,122,95,.10);
+        border-left: 4px solid #e07a5f;
+        border-radius: 8px;
+        font-size: 14px;
+        text-align: left;
+        color: #4b392c;
+    }
+
+    .rule-box.sub-rule {
+        background: rgba(123,75,183,.10);
+        border-left-color: #8b63ad;
+    }
+
+    .album {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 18px;
+    }
+
+    .card-wrapper {
+        position: relative;
+        padding-top: 5px;
+    }
+
+    .card {
+        min-height: 175px;
+        background: rgba(255,255,255,.90);
+        border-radius: 20px;
+        padding: 14px 10px 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.08);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .card img {
+        width: 96px;
+        height: 96px;
+        object-fit: contain;
+    }
+
+    .card.locked img {
+        filter: grayscale(100%);
+        opacity: .25;
+    }
+
+    .card.locked .name,
+    .card.locked .month {
+        opacity: .52;
+    }
+
+    .count-badge {
+        position: absolute;
+        top: -7px;
+        right: -7px;
+        z-index: 20;
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        background: #e07a5f;
+        color: white;
+        border: 2px solid white;
+        box-shadow: 0 3px 8px rgba(0,0,0,.16);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 800;
+    }
+
+    .sub-badge {
+        position: absolute;
+        top: -8px;
+        left: -7px;
+        z-index: 20;
+        padding: 5px 8px;
+        border-radius: 999px;
+        color: white;
+        border: 2px solid white;
+        box-shadow: 0 3px 8px rgba(0,0,0,.18);
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: .3px;
+    }
+
+    .sub-badge.owned {
+        background: #8b63ad;
+    }
+
+    .sub-badge.missing {
+        background: #6d6673;
+    }
+
+    .month {
+        margin-top: 7px;
+        color: #8b63ad;
+        font-size: 11px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: .7px;
+    }
+
+    .name {
+        font-size: 13px;
+        font-weight: 750;
+        margin-top: 3px;
+        overflow-wrap: anywhere;
+    }
+</style>
+</head>
+<body>
+<h1>🌳 Bosque de supercactusvsopo</h1>
+<div class='subtitle'>Álbum de colección</div><section class='collection'><h2>Basica</h2><div class='collection-info'><span>5 / 5 · 100%</span></div><div class='progress'><div class='progress-bar' style='width:100%'></div></div><div class='rule-box'>🔄 <b>Mercado:</b> si tienes 30 repetidos de algún árbol de esta colección, puedes canjearlos por 1 árbol de la colección <b>Japonesa</b>.</div><div class='album'><div class='card-wrapper'><div class='count-badge'>19</div><div class='card '><img src='../assets/roble.png' alt='Roble'><div class='name'>Roble</div></div></div><div class='card-wrapper'><div class='count-badge'>21</div><div class='card '><img src='../assets/pino.png' alt='Pino'><div class='name'>Pino</div></div></div><div class='card-wrapper'><div class='count-badge'>23</div><div class='card '><img src='../assets/olivo.png' alt='Olivo'><div class='name'>Olivo</div></div></div><div class='card-wrapper'><div class='count-badge'>13</div><div class='card '><img src='../assets/abeto.png' alt='Abeto'><div class='name'>Abeto</div></div></div><div class='card-wrapper'><div class='count-badge'>19</div><div class='card '><img src='../assets/sauce.png' alt='Sauce'><div class='name'>Sauce</div></div></div></div></section><section class='collection'><h2>Japonesa</h2><div class='collection-info'><span>1 / 5 · 20%</span></div><div class='progress'><div class='progress-bar' style='width:20%'></div></div><div class='rule-box'>🔄 <b>Mercado:</b> si tienes 30 repetidos de algún árbol de esta colección, puedes canjearlos por 1 árbol de la colección <b>Espanola</b>.</div><div class='album'><div class='card-wrapper'><div class='count-badge'>2</div><div class='card '><img src='../assets/sakura.png' alt='Sakura'><div class='name'>Sakura</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/bonsai.png' alt='Bonsai'><div class='name'>Bonsai</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/arce_rojo.png' alt='Arce rojo'><div class='name'>Arce rojo</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/bambu.png' alt='Bambu'><div class='name'>Bambu</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/pino_japones.png' alt='Pino japones'><div class='name'>Pino japones</div></div></div></div></section><section class='collection'><h2>Espanola</h2><div class='collection-info'><span>5 / 5 · 100%</span></div><div class='progress'><div class='progress-bar' style='width:100%'></div></div><div class='rule-box'>🔄 <b>Mercado:</b> si tienes 30 repetidos de algún árbol de esta colección, puedes canjearlos por 1 árbol de la colección <b>Flores</b>.</div><div class='album'><div class='card-wrapper'><div class='card '><img src='../assets/encina.png' alt='Encina'><div class='name'>Encina</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/almendro.png' alt='Almendro'><div class='name'>Almendro</div></div></div><div class='card-wrapper'><div class='count-badge'>2</div><div class='card '><img src='../assets/naranjo.png' alt='Naranjo'><div class='name'>Naranjo</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/limonero.png' alt='Limonero'><div class='name'>Limonero</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/alcornoque.png' alt='Alcornoque'><div class='name'>Alcornoque</div></div></div></div></section><section class='collection'><h2>Flores</h2><div class='collection-info'><span>0 / 15 · 0%</span></div><div class='progress'><div class='progress-bar' style='width:0%'></div></div><div class='rule-box'>🔄 <b>Mercado:</b> si tienes 30 repetidos de algún árbol de esta colección, puedes canjearlos por 1 árbol de la colección <b>Tropical</b>.</div><div class='album'><div class='card-wrapper'><div class='card locked'><img src='../assets/rosa.png' alt='Rosa'><div class='name'>Rosa</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/tulipan.png' alt='Tulipan'><div class='name'>Tulipan</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/lavanda.png' alt='Lavanda'><div class='name'>Lavanda</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/margarita.png' alt='Margarita'><div class='name'>Margarita</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/clavel.png' alt='Clavel'><div class='name'>Clavel</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/orquidea.png' alt='Orquidea'><div class='name'>Orquidea</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/lirio.png' alt='Lirio'><div class='name'>Lirio</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/jazmin.png' alt='Jazmin'><div class='name'>Jazmin</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/peonia.png' alt='Peonia'><div class='name'>Peonia</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/dalia.png' alt='Dalia'><div class='name'>Dalia</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/girasol.png' alt='Girasol'><div class='name'>Girasol</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/hibisco.png' alt='Hibisco'><div class='name'>Hibisco</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/loto.png' alt='Loto'><div class='name'>Loto</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/rosa_negra.png' alt='Rosa negra'><div class='name'>Rosa negra</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/rosa_dorada.png' alt='Rosa dorada'><div class='name'>Rosa dorada</div></div></div></div></section><section class='collection'><h2>Tropical</h2><div class='collection-info'><span>5 / 5 · 100%</span></div><div class='progress'><div class='progress-bar' style='width:100%'></div></div><div class='rule-box'>🔄 <b>Mercado:</b> si tienes 30 repetidos de algún árbol de esta colección, puedes canjearlos por 1 árbol de la colección <b>Invernal</b>.</div><div class='album'><div class='card-wrapper'><div class='count-badge'>2</div><div class='card '><img src='../assets/palmera.png' alt='Palmera'><div class='name'>Palmera</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/cocotero.png' alt='Cocotero'><div class='name'>Cocotero</div></div></div><div class='card-wrapper'><div class='count-badge'>2</div><div class='card '><img src='../assets/mango.png' alt='Mango'><div class='name'>Mango</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/platanera.png' alt='Platanera'><div class='name'>Platanera</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/flamboyan.png' alt='Flamboyan'><div class='name'>Flamboyan</div></div></div></div></section><section class='collection'><h2>Invernal</h2><div class='collection-info'><span>3 / 5 · 60%</span></div><div class='progress'><div class='progress-bar' style='width:60%'></div></div><div class='rule-box'>🔄 <b>Mercado:</b> si tienes 30 repetidos de algún árbol de esta colección, puedes canjearlos por 1 árbol de la colección <b>Desierto</b>.</div><div class='album'><div class='card-wrapper'><div class='card '><img src='../assets/abeto_nevado.png' alt='Abeto nevado'><div class='name'>Abeto nevado</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/pino_nevado.png' alt='Pino nevado'><div class='name'>Pino nevado</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/abedul.png' alt='Abedul'><div class='name'>Abedul</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/acebo.png' alt='Acebo'><div class='name'>Acebo</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/sauce_helado.png' alt='Sauce helado'><div class='name'>Sauce helado</div></div></div></div></section><section class='collection'><h2>Desierto</h2><div class='collection-info'><span>5 / 5 · 100%</span></div><div class='progress'><div class='progress-bar' style='width:100%'></div></div><div class='rule-box'>🔄 <b>Mercado:</b> si tienes 30 repetidos de algún árbol de esta colección, puedes canjearlos por 1 árbol de la colección <b>Otonal</b>.</div><div class='album'><div class='card-wrapper'><div class='count-badge'>2</div><div class='card '><img src='../assets/cactus.png' alt='Cactus'><div class='name'>Cactus</div></div></div><div class='card-wrapper'><div class='count-badge'>2</div><div class='card '><img src='../assets/cactus_flor.png' alt='Cactus flor'><div class='name'>Cactus flor</div></div></div><div class='card-wrapper'><div class='count-badge'>2</div><div class='card '><img src='../assets/agave.png' alt='Agave'><div class='name'>Agave</div></div></div><div class='card-wrapper'><div class='count-badge'>2</div><div class='card '><img src='../assets/yuca.png' alt='Yuca'><div class='name'>Yuca</div></div></div><div class='card-wrapper'><div class='count-badge'>2</div><div class='card '><img src='../assets/baobab.png' alt='Baobab'><div class='name'>Baobab</div></div></div></div></section><section class='collection'><h2>Otonal</h2><div class='collection-info'><span>0 / 5 · 0%</span></div><div class='progress'><div class='progress-bar' style='width:0%'></div></div><div class='rule-box'>🔄 <b>Mercado:</b> si tienes 30 repetidos de algún árbol de esta colección, puedes canjearlos por 1 árbol de la colección <b>Frutales</b>.</div><div class='album'><div class='card-wrapper'><div class='card locked'><img src='../assets/arce_naranja.png' alt='Arce naranja'><div class='name'>Arce naranja</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/roble_otonal.png' alt='Roble otonal'><div class='name'>Roble otonal</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/castano.png' alt='Castano'><div class='name'>Castano</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/nogal.png' alt='Nogal'><div class='name'>Nogal</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/liquidambar.png' alt='Liquidambar'><div class='name'>Liquidambar</div></div></div></div></section><section class='collection'><h2>Frutales</h2><div class='collection-info'><span>5 / 5 · 100%</span></div><div class='progress'><div class='progress-bar' style='width:100%'></div></div><div class='rule-box'>🔄 <b>Mercado:</b> si tienes 30 repetidos de algún árbol de esta colección, puedes canjearlos por 1 árbol de la colección <b>Fantastica</b>.</div><div class='album'><div class='card-wrapper'><div class='card '><img src='../assets/manzano.png' alt='Manzano'><div class='name'>Manzano</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/peral.png' alt='Peral'><div class='name'>Peral</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/cerezo.png' alt='Cerezo'><div class='name'>Cerezo</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/melocotonero.png' alt='Melocotonero'><div class='name'>Melocotonero</div></div></div><div class='card-wrapper'><div class='card '><img src='../assets/granado.png' alt='Granado'><div class='name'>Granado</div></div></div></div></section><section class='collection'><h2>Fantastica</h2><div class='collection-info'><span>0 / 7 · 0%</span></div><div class='progress'><div class='progress-bar' style='width:0%'></div></div><div class='rule-box'>🔄 <b>Mercado:</b> si tienes 30 repetidos de algún árbol de esta colección, puedes canjearlos por 1 árbol de la colección <b>Oposiciones</b>.</div><div class='album'><div class='card-wrapper'><div class='card locked'><img src='../assets/luminoso.png' alt='Luminoso'><div class='name'>Luminoso</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/cristal.png' alt='Cristal'><div class='name'>Cristal</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/oscuro.png' alt='Oscuro'><div class='name'>Oscuro</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/arcoiris.png' alt='Arcoiris'><div class='name'>Arcoiris</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/dorado.png' alt='Dorado'><div class='name'>Dorado</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/mecanico.png' alt='Mecanico'><div class='name'>Mecanico</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/fantasma.png' alt='Fantasma'><div class='name'>Fantasma</div></div></div></div></section><section class='collection'><h2>Oposiciones</h2><div class='collection-info'><span>0 / 10 · 0%</span></div><div class='progress'><div class='progress-bar' style='width:0%'></div></div><div class='rule-box'>🔄 <b>Mercado:</b> si tienes 30 repetidos de algún árbol de esta colección, puedes canjearlos por 1 árbol de la colección <b>Familia</b>.</div><div class='album'><div class='card-wrapper'><div class='card locked'><img src='../assets/cafe.png' alt='Cafe'><div class='name'>Cafe</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/apuntes.png' alt='Apuntes'><div class='name'>Apuntes</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/estres.png' alt='Estres'><div class='name'>Estres</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/no_duermo.png' alt='No duermo'><div class='name'>No duermo</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/examen.png' alt='Examen'><div class='name'>Examen</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/aprobado.png' alt='Aprobado'><div class='name'>Aprobado</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/boe.png' alt='Boe'><div class='name'>Boe</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/subrayador.png' alt='Subrayador'><div class='name'>Subrayador</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/temas.png' alt='Temas'><div class='name'>Temas</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/descanso_culposo.png' alt='Descanso culposo'><div class='name'>Descanso culposo</div></div></div></div></section><section class='collection'><h2>Familia</h2><div class='collection-info'><span>0 / 5 · 0%</span></div><div class='progress'><div class='progress-bar' style='width:0%'></div></div><div class='rule-box'>✨ <b>Meta final:</b> si consigues 10 de cada ejemplar, puedes canjear tu <b>Árbol de Autor</b> exclusivo.</div><div class='album'><div class='card-wrapper'><div class='card locked'><img src='../assets/madre.png' alt='Madre'><div class='name'>Madre</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/padre.png' alt='Padre'><div class='name'>Padre</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/abuela.png' alt='Abuela'><div class='name'>Abuela</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/abuelo.png' alt='Abuelo'><div class='name'>Abuelo</div></div></div><div class='card-wrapper'><div class='card locked'><img src='../assets/hermanos.png' alt='Hermanos'><div class='name'>Hermanos</div></div></div></div></section><section class='collection sub-collection'><h2>Suscriptores ⭐</h2><div class='collection-info'><span>1 / 12 · 8%</span></div><div class='progress'><div class='progress-bar' style='width:8%'></div></div><div class='rule-box sub-rule'>⭐ <b>Colección de suscriptores:</b> los suscriptores pueden plantar estos árboles con su canje exclusivo de puntos. Cuando se planta uno, cualquier participante que complete el pomo puede conseguirlo.</div><div class='album'><div class='card-wrapper'><div class='sub-badge owned'>⭐ SUB</div><div class='card '><img src='../assets/verano.png' alt='Verano'><div class='month'>Julio</div><div class='name'>Verano</div></div></div><div class='card-wrapper'><div class='sub-badge missing'>🔒 SUB</div><div class='card locked'><img src='../assets/lavanda_sub.png' alt='Lavanda'><div class='month'>Agosto</div><div class='name'>Lavanda</div></div></div><div class='card-wrapper'><div class='sub-badge missing'>🔒 SUB</div><div class='card locked'><img src='../assets/hidrangea.png' alt='Hidrangea'><div class='month'>Septiembre</div><div class='name'>Hidrangea</div></div></div><div class='card-wrapper'><div class='sub-badge missing'>🔒 SUB</div><div class='card locked'><img src='../assets/otono_magico.png' alt='Oto&#241;o m&#225;gico'><div class='month'>Octubre</div><div class='name'>Oto&#241;o m&#225;gico</div></div></div><div class='card-wrapper'><div class='sub-badge missing'>🔒 SUB</div><div class='card locked'><img src='../assets/castanas.png' alt='Casta&#241;as'><div class='month'>Noviembre</div><div class='name'>Casta&#241;as</div></div></div><div class='card-wrapper'><div class='sub-badge missing'>🔒 SUB</div><div class='card locked'><img src='../assets/navidad.png' alt='Navidad'><div class='month'>Diciembre</div><div class='name'>Navidad</div></div></div><div class='card-wrapper'><div class='sub-badge missing'>🔒 SUB</div><div class='card locked'><img src='../assets/nieve.png' alt='Nieve'><div class='month'>Enero</div><div class='name'>Nieve</div></div></div><div class='card-wrapper'><div class='sub-badge missing'>🔒 SUB</div><div class='card locked'><img src='../assets/san_valentin.png' alt='San Valent&#237;n'><div class='month'>Febrero</div><div class='name'>San Valent&#237;n</div></div></div><div class='card-wrapper'><div class='sub-badge missing'>🔒 SUB</div><div class='card locked'><img src='../assets/sakura_sub.png' alt='Sakura'><div class='month'>Marzo</div><div class='name'>Sakura</div></div></div><div class='card-wrapper'><div class='sub-badge missing'>🔒 SUB</div><div class='card locked'><img src='../assets/lluvia.png' alt='Lluvia'><div class='month'>Abril</div><div class='name'>Lluvia</div></div></div><div class='card-wrapper'><div class='sub-badge missing'>🔒 SUB</div><div class='card locked'><img src='../assets/flores_blancas.png' alt='Flores blancas'><div class='month'>Mayo</div><div class='name'>Flores blancas</div></div></div><div class='card-wrapper'><div class='sub-badge missing'>🔒 SUB</div><div class='card locked'><img src='../assets/mar.png' alt='Mar'><div class='month'>Junio</div><div class='name'>Mar</div></div></div></div></section></body></html>
