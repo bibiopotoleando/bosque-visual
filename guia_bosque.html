@@ -24,7 +24,7 @@ code{background:#efe2d2;padding:3px 7px;border-radius:8px;font-weight:700}ul{pad
 .mini{background:rgba(255,255,255,.7);border-radius:14px;padding:15px;border:1px solid rgba(90,70,50,.12)}
 table{width:100%;border-collapse:collapse;margin-top:14px;background:rgba(255,255,255,.65);border-radius:14px;overflow:hidden}
 th,td{padding:11px 13px;border-bottom:1px solid #eadfce;text-align:left}th{background:#efe2d2}tr:last-child td{border-bottom:0}
-.tag{display:inline-block;padding:3px 9px;border-radius:999px;background:#efe2d2;font-size:.85rem;font-weight:700;margin:2px 4px 2px 0}
+.tag{display:inline-block;padding:3px 9px;border-radius:999px;background:#efe2d2;font-size:.85rem;font-weight:700;margin:2px 4px 2px 0}.muted{color:#7a6250;font-size:.93rem}
 @media(max-width:700px){body{padding:14px}main{padding:20px;border-radius:20px}h1{font-size:32px}.mini-grid{grid-template-columns:1fr}table{font-size:.92rem}}
 </style>
 </head>
@@ -47,6 +47,13 @@ Durante cada sesión puede crecer un árbol en pantalla y el chat puede unirse p
 <li><strong>Recibiéndolos mediante Bits:</strong> se añaden directamente a tu colección, sin tener que plantarlos.</li>
 <li><strong>Por suscripción o renovación:</strong> recibes árboles sorpresa directamente en tu inventario.</li>
 </ul>
+</div>
+
+<div class="card">
+<h3>🌿 Ejemplo rápido</h3>
+Empieza un pomodoro y aparece un <strong>sauce</strong>. Te unes con <code>!árbol</code>, completas la sesión y validas con <code>!cumplido</code>.
+Si la plantación sale bien, el sauce se añade a tu colección. Si ya tenías uno, pasas a tener <strong>2 unidades</strong>.
+Más adelante podrás consultar tu colección, verla en tu álbum visual y, cuando desbloquees el Mercado, decidir si conservas esos ejemplares o los utilizas en un intercambio.
 </div>
 </section>
 
@@ -122,6 +129,90 @@ Si usa <code>!fallé</code>, no recibe ningún árbol.
 <span class="tag">Mayo · Flores blancas</span>
 <span class="tag">Junio · Mar</span>
 </div>
+</section>
+
+
+<section>
+<h2>🔄 Mercado de árboles</h2>
+
+<div class="card">
+El Mercado te permite <strong>intercambiar árboles que ya tienes</strong> por otros árboles del Bosque.
+No utiliza una moneda nueva: las 🍃 solo indican el <strong>valor de intercambio de cada ejemplar</strong>.
+</div>
+
+<div class="important">
+<strong>🔓 ¿Cuándo se desbloquea?</strong><br>
+El Mercado se desbloquea al completar <strong>39 pomodoros</strong>, el equivalente aproximado a una semana completa de sesiones del canal.
+El bot te avisará automáticamente cuando lo consigas y, desde ese momento, queda desbloqueado para siempre.
+No se muestra un contador de progreso.
+</div>
+
+<div class="card">
+<strong>🪙 ¿Cuánto cuesta usarlo?</strong><br>
+Cada operación se realiza mediante la recompensa de Twitch <strong>Mercado de árboles</strong>, que cuesta <strong>500 PulpiPuntiños</strong>.
+Ese canje ya es el coste en puntos del canal: dentro del Mercado no tienes que pagar más puntos.
+</div>
+
+<div class="card">
+<strong>🍃 Valor de cada árbol por unidad</strong>
+<table>
+<thead><tr><th>Colección</th><th>Valor por unidad</th></tr></thead>
+<tbody>
+<tr><td>Básica</td><td>10🍃/ud</td></tr>
+<tr><td>Tropical</td><td>60🍃/ud</td></tr>
+<tr><td>Desierto</td><td>70🍃/ud</td></tr>
+<tr><td>Frutales</td><td>80🍃/ud</td></tr>
+<tr><td>Española</td><td>90🍃/ud</td></tr>
+<tr><td>Invernal</td><td>100🍃/ud</td></tr>
+<tr><td>Familia</td><td>140🍃/ud</td></tr>
+<tr><td>Otoñal</td><td>150🍃/ud</td></tr>
+<tr><td>Japonesa</td><td>230🍃/ud</td></tr>
+<tr><td>Fantástica</td><td>340🍃/ud</td></tr>
+<tr><td>Suscriptores</td><td>420🍃/ud</td></tr>
+<tr><td>Oposiciones</td><td>450🍃/ud</td></tr>
+<tr><td>Flores</td><td>650🍃/ud</td></tr>
+<tr><td>Autor</td><td>10.000🍃/ud</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card">
+<strong>✍️ ¿Qué escribo en el canjeo?</strong><br><br>
+Usa este formato:
+<br><br>
+<code>árbol deseado | árbol x2, otro árbol</code>
+<br><br>
+Ejemplo:
+<br><br>
+<code>pino_japones | abeto_nevado x2, sauce x3</code>
+<br><br>
+El sistema suma automáticamente el valor 🍃 de los árboles que entregas.
+</div>
+
+<div class="mini-grid">
+<div class="mini">
+<strong>✅ Si llegas al valor</strong><br>
+El intercambio se realiza y los árboles entregados desaparecen de tu inventario.
+El nuevo árbol se añade a tu colección.
+</div>
+<div class="mini">
+<strong>💸 Si te pasas</strong><br>
+El intercambio también se realiza, pero la diferencia no se devuelve.
+El Mercado lo considera una pequeña propina 😂
+</div>
+</div>
+
+<div class="card">
+<strong>❌ Si algo está mal</strong><br>
+Si no tienes el Mercado desbloqueado, el formato es incorrecto, el árbol no existe, no tienes las unidades indicadas o el valor entregado no alcanza el necesario, el canje se rechaza y se te devuelven los <strong>500 PulpiPuntiños</strong>.
+</div>
+
+<div class="card">
+<code>!mercado</code>
+<span class="command-desc">Explica el funcionamiento del Mercado, muestra los valores por unidad y te indica el valor total 🍃 de tu colección actual.</span>
+<p class="muted">Tus 🍃 no son un saldo independiente: representan el valor de los árboles que tienes en ese momento.</p>
+</div>
+
 </section>
 
 <section>
@@ -210,9 +301,11 @@ El árbol se pierde para el grupo, pero la persona compradora queda protegida si
 <code>!colecciones</code>
 <span class="command-desc">Muestra todas las colecciones disponibles y tu progreso en cada una.</span>
 <code>!árboles [colección]</code>
-<span class="command-desc">Enseña las especies de una colección concreta. Ejemplo: <code>!árboles japonesa</code>.</span>
+<span class="command-desc">Enseña las especies de una colección concreta, cuántas unidades tienes y su valor 🍃. Ejemplo: <code>!árboles japonesa</code>.</span>
 <code>!bosque</code>
-<span class="command-desc">Resume cuántos árboles tienes en cada colección.</span>
+<span class="command-desc">Resume cuántos árboles tienes en cada colección y el valor 🍃 total actual de tu bosque.</span>
+<code>!mercado</code>
+<span class="command-desc">Consulta cómo funciona el Mercado, los valores por unidad y el valor total 🍃 de tu colección.</span>
 <code>!rankingbosque</code>
 <span class="command-desc">Consulta el ranking de los bosques más grandes del canal.</span>
 </div>
@@ -222,7 +315,7 @@ El árbol se pierde para el grupo, pero la persona compradora queda protegida si
 <h2>🏆 Tu álbum visual</h2>
 <div class="card">
 El bosque cuenta actualmente con <strong>13 colecciones temáticas generales</strong>, además de los Árboles de Autor.
-Cada ejemplar conseguido se guarda de forma permanente en tu inventario.
+Cada ejemplar conseguido se guarda en tu inventario y puede acumular unidades. Si tienes el Mercado desbloqueado, puedes decidir intercambiar algunos de esos ejemplares por otros.
 </div>
 <div class="card">
 Para generar el enlace actualizado de tu álbum, utiliza la recompensa
