@@ -1,0 +1,14 @@
+basica|5
+tropical|105
+desierto|115
+frutales|120
+espanola|125
+invernal|130
+familia|190
+otonal|195
+japonesa|295
+fantastica|430
+suscriptores|525
+oposiciones|560
+flores|825
+autor|13250
