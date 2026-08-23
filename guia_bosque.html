@@ -159,22 +159,23 @@ Ese canje ya es el coste en puntos del canal: dentro del Mercado no tienes que p
 <table>
 <thead><tr><th>Colección</th><th>Valor por unidad</th></tr></thead>
 <tbody>
-<tr><td>Básica</td><td>5🍃/ud</td></tr>
-<tr><td>Tropical</td><td>105🍃/ud</td></tr>
-<tr><td>Desierto</td><td>115🍃/ud</td></tr>
-<tr><td>Frutales</td><td>120🍃/ud</td></tr>
-<tr><td>Española</td><td>125🍃/ud</td></tr>
-<tr><td>Invernal</td><td>130🍃/ud</td></tr>
-<tr><td>Familia</td><td>190🍃/ud</td></tr>
-<tr><td>Otoñal</td><td>195🍃/ud</td></tr>
-<tr><td>Japonesa</td><td>295🍃/ud</td></tr>
-<tr><td>Fantástica</td><td>430🍃/ud</td></tr>
-<tr><td>Suscriptores</td><td>525🍃/ud</td></tr>
-<tr><td>Oposiciones</td><td>560🍃/ud</td></tr>
-<tr><td>Flores</td><td>825🍃/ud</td></tr>
-<tr><td>Autor</td><td>13.250🍃/ud</td></tr>
+<tr data-market-row="basica"><td>Básica</td><td class="market-value" data-market="basica">—</td></tr>
+<tr data-market-row="tropical"><td>Tropical</td><td class="market-value" data-market="tropical">—</td></tr>
+<tr data-market-row="desierto"><td>Desierto</td><td class="market-value" data-market="desierto">—</td></tr>
+<tr data-market-row="frutales"><td>Frutales</td><td class="market-value" data-market="frutales">—</td></tr>
+<tr data-market-row="espanola"><td>Española</td><td class="market-value" data-market="espanola">—</td></tr>
+<tr data-market-row="invernal"><td>Invernal</td><td class="market-value" data-market="invernal">—</td></tr>
+<tr data-market-row="familia"><td>Familia</td><td class="market-value" data-market="familia">—</td></tr>
+<tr data-market-row="otonal"><td>Otoñal</td><td class="market-value" data-market="otonal">—</td></tr>
+<tr data-market-row="japonesa"><td>Japonesa</td><td class="market-value" data-market="japonesa">—</td></tr>
+<tr data-market-row="fantastica"><td>Fantástica</td><td class="market-value" data-market="fantastica">—</td></tr>
+<tr data-market-row="suscriptores"><td>Suscriptores</td><td class="market-value" data-market="suscriptores">—</td></tr>
+<tr data-market-row="oposiciones"><td>Oposiciones</td><td class="market-value" data-market="oposiciones">—</td></tr>
+<tr data-market-row="flores"><td>Flores</td><td class="market-value" data-market="flores">—</td></tr>
+<tr data-market-row="autor"><td>Autor</td><td class="market-value" data-market="autor">—</td></tr>
 </tbody>
 </table>
+<p id="market-values-status" class="muted">Cargando valores actuales del Mercado…</p>
 </div>
 
 <div class="card">
@@ -342,5 +343,74 @@ Para generar el enlace actualizado de tu álbum, utiliza la recompensa
 
 <div class="footer">🌳 Gracias por estudiar con enfoque y hacer crecer el bosque del chat ✨</div>
 </main>
+
+<script>
+(function () {
+  const status = document.getElementById("market-values-status");
+
+  function formatES(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return value;
+    return new Intl.NumberFormat("es-ES", { maximumFractionDigits: 0 }).format(n);
+  }
+
+  async function cargarValoresMercado() {
+    try {
+      // El ?v= evita que GitHub Pages / el navegador enseñen una copia antigua en caché.
+      const response = await fetch("./mercado_valores.txt?v=" + Date.now(), {
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        throw new Error("HTTP " + response.status);
+      }
+
+      const text = await response.text();
+      const valores = {};
+
+      text.split(/\r?\n/).forEach(linea => {
+        linea = linea.trim();
+        if (!linea || linea.startsWith("#")) return;
+
+        const partes = linea.split("|");
+        if (partes.length < 2) return;
+
+        const clave = partes[0].trim().toLowerCase();
+        const valor = Number(partes[1].trim());
+
+        if (clave && Number.isFinite(valor)) {
+          valores[clave] = valor;
+        }
+      });
+
+      let actualizados = 0;
+
+      document.querySelectorAll("[data-market]").forEach(celda => {
+        const clave = celda.dataset.market;
+        if (Object.prototype.hasOwnProperty.call(valores, clave)) {
+          celda.textContent = formatES(valores[clave]) + "🍃/ud";
+          actualizados++;
+        }
+      });
+
+      if (status) {
+        if (actualizados > 0) {
+          status.textContent = "Valores cargados automáticamente desde mercado_valores.txt.";
+        } else {
+          status.textContent = "No se encontraron valores válidos en mercado_valores.txt.";
+        }
+      }
+    } catch (error) {
+      console.error("No se pudieron cargar los valores del Mercado:", error);
+      if (status) {
+        status.textContent = "No se pudieron cargar los valores del Mercado en este momento.";
+      }
+    }
+  }
+
+  cargarValoresMercado();
+})();
+</script>
+
 </body>
 </html>
