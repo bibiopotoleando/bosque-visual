@@ -26,6 +26,21 @@ table{width:100%;border-collapse:collapse;margin-top:14px;background:rgba(255,25
 th,td{padding:11px 13px;border-bottom:1px solid #eadfce;text-align:left}th{background:#efe2d2}tr:last-child td{border-bottom:0}
 .tag{display:inline-block;padding:3px 9px;border-radius:999px;background:#efe2d2;font-size:.85rem;font-weight:700;margin:2px 4px 2px 0}.muted{color:#7a6250;font-size:.93rem}
 @media(max-width:700px){body{padding:14px}main{padding:20px;border-radius:20px}h1{font-size:32px}.mini-grid{grid-template-columns:1fr}table{font-size:.92rem}}
+
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:18px}
+.indice{background:linear-gradient(135deg,#fffdf6 0%,#fff7df 100%);border:2px solid #fbbf24}
+.indice-intro{margin-top:-4px;opacity:.82}
+.indice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+.indice-link{display:flex;align-items:center;justify-content:center;text-align:center;padding:11px 12px;border-radius:999px;background:rgba(255,255,255,.9);border:1px solid #f4cf68;color:inherit;text-decoration:none;font-weight:700;box-shadow:0 3px 10px rgba(120,80,30,.07)}
+.indice-link:hover{transform:translateY(-1px);background:#fff}
+.volver{display:inline-block;margin-top:12px;color:inherit;font-weight:700;text-decoration:none;opacity:.78}
+.volver:hover{text-decoration:underline}
+.demo-btn{display:inline-block;margin:8px 8px 0 0;padding:10px 14px;border-radius:999px;background:#efe2d2;color:#3d2d22;text-decoration:none;font-weight:800;border:1px solid #d7c2a8}
+.demo-btn:hover{filter:brightness(.98);transform:translateY(-1px)}
+@media(max-width:760px){.indice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.indice-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -33,9 +48,13 @@ th,td{padding:11px 13px;border-bottom:1px solid #eadfce;text-align:left}th{backg
 
 <h1>🌳 Guía del Bosque Virtual</h1>
 <div class="subtitle">Colecciona árboles mientras estudias, completas pomodoros, participas en el chat y apoyas el canal ✨</div>
+<section class="indice" id="indice">
+<h2>📚 Ir directamente a...</h2>
+<p class="indice-intro">Pulsa en el apartado que quieras consultar.</p>
+<div class="indice-grid"><a class="indice-link" href="#que-es">🌱 Qué es</a><a class="indice-link" href="#plantacion">🚀 Plantar</a><a class="indice-link" href="#validacion">✅ Validar</a><a class="indice-link" href="#puntos">🛍️ Puntos</a><a class="indice-link" href="#mercado">🔄 Mercado</a><a class="indice-link" href="#bits">💎 Bits</a><a class="indice-link" href="#suscripcion">🎁 Suscripción</a><a class="indice-link" href="#autor">🌟 Autor</a><a class="indice-link" href="#consultas">🔍 Comandos</a><a class="indice-link" href="#album">🏆 Álbum</a><a class="indice-link" href="#guias">🔗 Más guías</a></div>
+</section>
 
-<section>
-<h2>🌱 ¿Qué es el Bosque del canal?</h2>
+<section id="que-es"><h2>🌱 ¿Qué es el Bosque del canal?</h2>
 <div class="card">
 El Bosque Virtual convierte nuestros bloques de estudio en una experiencia cooperativa.
 Durante cada sesión puede crecer un árbol en pantalla y el chat puede unirse para intentar incorporarlo a su colección personal.
@@ -55,10 +74,9 @@ Empieza un pomodoro y aparece un <strong>sauce</strong>. Te unes con <code>!árb
 Si la plantación sale bien, el sauce se añade a tu colección. Si ya tenías uno, pasas a tener <strong>2 unidades</strong>.
 Más adelante podrás consultar tu colección, verla en tu álbum visual y, cuando desbloquees el Mercado, decidir si conservas esos ejemplares o los utilizas en un intercambio.
 </div>
-</section>
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
 
-<section>
-<h2>🚀 Cómo participar en una plantación</h2>
+<section id="plantacion"><h2>🚀 Cómo participar en una plantación</h2>
 <div class="card">
 <h3>1. Se abre una nueva sesión</h3>
 Al comenzar un pomodoro, el bot anunciará qué árbol se va a plantar. Puede ser el árbol previsto por defecto,
@@ -76,10 +94,9 @@ Mientras la inscripción esté abierta, escribe:
 <code>!infobosque</code> o <code>!plantando</code>
 <span class="command-desc">Muestra la especie que está en pantalla y cuántos guardabosques se han apuntado.</span>
 </div>
-</section>
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
 
-<section>
-<h2>✅ Validación y crecimiento</h2>
+<section id="validacion"><h2>✅ Validación y crecimiento</h2>
 <div class="important">
 <strong>¡La honestidad es la base del bosque!</strong>
 Cuando el cronómetro llegue a cero, el bot abrirá un periodo de validación de 2 minutos.
@@ -90,10 +107,9 @@ Cuando el cronómetro llegue a cero, el bot abrirá un periodo de validación de
 <code>!fallé</code>
 <span class="command-desc">Úsalo si tuviste que abandonar o te distrajiste demasiado. No hay penalización personal.</span>
 </div>
-</section>
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
 
-<section>
-<h2>🛍️ Árboles elegidos con puntos del canal</h2>
+<section id="puntos"><h2>🛍️ Árboles elegidos con puntos del canal</h2>
 <div class="card">
 En la tienda de Twitch puedes gastar PulpiPuntiños para elegir qué especie se plantará en un próximo pomodoro.
 Cada recompensa corresponde a una colección concreta.
@@ -129,11 +145,10 @@ Si usa <code>!fallé</code>, no recibe ningún árbol.
 <span class="tag">Mayo · Flores blancas</span>
 <span class="tag">Junio · Mar</span>
 </div>
-</section>
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
 
 
-<section>
-<h2>🔄 Mercado de árboles</h2>
+<section id="mercado"><h2>🔄 Mercado de árboles</h2>
 
 <div class="card">
 El Mercado te permite <strong>intercambiar árboles que ya tienes</strong> por otros árboles del Bosque.
@@ -215,10 +230,9 @@ Si no tienes el Mercado desbloqueado, el formato es incorrecto, el árbol no exi
 <p class="muted">Tus 🍃 no son un saldo independiente: representan el valor de los árboles que tienes en ese momento.</p>
 </div>
 
-</section>
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
 
-<section>
-<h2>💎 Árboles y ventajas mediante Bits</h2>
+<section id="bits"><h2>💎 Árboles y ventajas mediante Bits</h2>
 <div class="card bits-card">
 Los potenciadores personalizados de Bits permiten apoyar el canal y conseguir ventajas relacionadas con el bosque.
 </div>
@@ -240,10 +254,9 @@ Entre los potenciadores disponibles están:
 </ul>
 Consulta la <strong>Guía de Canjeos</strong> para ver todos los precios y condiciones.
 </div>
-</section>
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
 
-<section>
-<h2>🎁 Regalo por suscripción</h2>
+<section id="suscripcion"><h2>🎁 Regalo por suscripción</h2>
 <div class="card subscriber-card">
 Al suscribirte, renovar o recibir una suscripción regalada, el bot añade automáticamente árboles sorpresa a tu colección personal.
 El sorteo utiliza todas las colecciones generales, incluida Suscriptores, y deja fuera los Árboles de Autor.
@@ -263,10 +276,9 @@ El sorteo utiliza todas las colecciones generales, incluida Suscriptores, y deja
 Dentro de una misma entrega no se repite la misma especie.
 Sí puede tocarte un árbol que ya tuvieras de otro día: en ese caso se suma una nueva unidad.
 </div>
-</section>
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
 
-<section>
-<h2>🌟 Árboles de Autor</h2>
+<section id="autor"><h2>🌟 Árboles de Autor</h2>
 <div class="card premium-card">
 Los Árboles de Autor son diseños únicos creados para una persona de la comunidad.
 Se pueden solicitar mediante la recompensa de puntos del canal o mediante el potenciador de Bits correspondiente.
@@ -277,10 +289,9 @@ La propuesta se revisará antes de diseñarla y programarla.
 cuando un Árbol de Autor se planta y la sesión sale bien, las personas participantes que validen correctamente
 pueden añadir esa especie exclusiva a su colección.
 </div>
-</section>
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
 
-<section>
-<h2>⚠️ Regla del 20% en los Árboles de Autor</h2>
+<section id="regla-autor"><h2>⚠️ Regla del 20% en los Árboles de Autor</h2>
 <div class="card">
 <div class="fail-zone">
 <strong>Si más del 20% de las personas inscritas usa <code>!fallé</code>:</strong>
@@ -295,10 +306,9 @@ pueden añadir esa especie exclusiva a su colección.
 El árbol se pierde para el grupo, pero la persona compradora queda protegida si cumplió.</i>
 </p>
 </div>
-</section>
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
 
-<section>
-<h2>🔍 Consultar colecciones</h2>
+<section id="consultas"><h2>🔍 Consultar colecciones</h2>
 <div class="card">
 <code>!colecciones</code>
 <span class="command-desc">Muestra todas las colecciones disponibles y tu progreso en cada una.</span>
@@ -311,10 +321,9 @@ El árbol se pierde para el grupo, pero la persona compradora queda protegida si
 <code>!rankingbosque</code>
 <span class="command-desc">Consulta el ranking de los bosques más grandes del canal.</span>
 </div>
-</section>
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
 
-<section>
-<h2>🏆 Tu álbum visual</h2>
+<section id="album"><h2>🏆 Tu álbum visual</h2>
 <div class="card">
 El bosque cuenta actualmente con <strong>13 colecciones temáticas generales</strong>, además de los Árboles de Autor.
 Cada ejemplar conseguido se guarda en tu inventario y puede acumular unidades. Si tienes el Mercado desbloqueado, puedes decidir intercambiar algunos de esos ejemplares por otros.
@@ -323,10 +332,20 @@ Cada ejemplar conseguido se guarda en tu inventario y puede acumular unidades. S
 Para generar el enlace actualizado de tu álbum, utiliza la recompensa
 <strong>Generar tu Bosque Virtual</strong>, disponible por <strong>10.000 puntos</strong>.
 </div>
-</section>
 
-<section>
-<h2>🔗 Guías relacionadas</h2>
+<div class="card">
+  <h3>👀 ¿Cómo se ve un bosque terminado?</h3>
+  <p>Si quieres cotillear un ejemplo antes de generar el tuyo, puedes abrir el bosque de Alba. También te sirve para entender cómo se organizan las colecciones y las unidades repetidas.</p>
+  <a class="demo-btn" href="https://bibiopotoleando.github.io/bosque-visual/usuarios/albaopotoleando.html" target="_blank" rel="noopener noreferrer">🌳 Ver el bosque de Alba</a>
+  <div style="margin-top:14px">
+    <strong>🌱 Colección Básica, por ejemplo:</strong>
+    <span class="tag">roble</span><span class="tag">pino</span><span class="tag">olivo</span><span class="tag">abeto</span><span class="tag">sauce</span>
+  </div>
+</div>
+
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
+
+<section id="guias"><h2>🔗 Guías relacionadas</h2>
 <div class="links">
 <p>🌳 Bosque virtual:<br><a href="https://bibiopotoleando.github.io/bosque-visual/guia_bosque.html">https://bibiopotoleando.github.io/bosque-visual/guia_bosque.html</a></p>
 <p>📝 Tareas:<br><a href="https://bibiopotoleando.github.io/guia-tareas/guia_tareas.html">https://bibiopotoleando.github.io/guia-tareas/guia_tareas.html</a></p>
@@ -339,7 +358,7 @@ Para generar el enlace actualizado de tu álbum, utiliza la recompensa
 <p>📦 Material:<br><a href="https://bibiopotoleando.github.io/estados-y-bebidas/material.html">https://bibiopotoleando.github.io/estados-y-bebidas/material.html</a></p>
 <p>👾 Discord:<br><a href="https://bibiopotoleando.github.io/discord/index.html">https://bibiopotoleando.github.io/discord/index.html</a></p>
 </div>
-</section>
+<a class="volver" href="#indice">↑ Volver al índice</a></section>
 
 <div class="footer">🌳 Gracias por estudiar con enfoque y hacer crecer el bosque del chat ✨</div>
 </main>
