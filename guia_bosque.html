@@ -5,528 +5,335 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guía del Bosque Virtual</title>
 <style>
+:root{
+  --bg1:#fff8ee; --bg2:#eef8e7; --paper:rgba(255,250,242,.95); --card:#fffdf8;
+  --ink:#4a392c; --muted:#7a6454; --line:#ead9c7; --gold:#d9ac5c; --leaf:#7fa06c; --leaf2:#97b985;
+  --brown:#8a674c; --cream:#fff4df;
+}
 *{box-sizing:border-box}
-body{margin:0;padding:32px;font-family:"Segoe UI",Arial,sans-serif;background:#f5efe6;color:#4b392c;line-height:1.6}
-main{max-width:980px;margin:0 auto;background:rgba(255,255,255,.72);border-radius:28px;padding:32px;box-shadow:0 8px 28px rgba(0,0,0,.08)}
-h1,h2,h3{color:#3d2d22}h1{text-align:center;font-size:42px;margin-top:0;line-height:1.2}
-.subtitle{text-align:center;color:#7a6250;margin-bottom:32px;font-size:18px}
-section{margin-bottom:34px}.card{background:rgba(255,255,255,.78);border-radius:20px;padding:20px;margin:16px 0;box-shadow:0 4px 14px rgba(0,0,0,.05)}
-code{background:#efe2d2;padding:3px 7px;border-radius:8px;font-weight:700}ul{padding-left:24px}
-.important{border-left:5px solid #9f7f5f;padding:14px 16px;background:rgba(255,255,255,.55);margin:20px 0;border-radius:0 12px 12px 0}
-.premium-card{border:2px solid #d4af37;background:linear-gradient(135deg,#fffcf0 0%,#fff9e6 100%)}
-.subscriber-card{border:2px solid #e7a6c9;background:linear-gradient(135deg,#fff8fc 0%,#fff0f7 100%)}
-.bits-card{border:2px solid #9a78ff;background:linear-gradient(135deg,#faf7ff 0%,#f2edff 100%)}
-.fail-zone{border-left:5px solid #e74c3c;padding:15px;background:#fdf2f2;border-radius:10px;margin-top:10px}
-.links{background:rgba(120,160,255,.08);border:2px solid rgba(120,160,255,.4);border-radius:14px;padding:15px;margin-top:20px}
-.links p{margin-bottom:14px}.links a{color:#5c7cff;font-weight:600;word-break:break-word}
-.footer{text-align:center;margin-color:#7a6250}.command-desc{display:block;margin:7px 0 15px;font-size:.95em;color:#5d4a3d}
-.mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
-.mini{background:rgba(255,255,255,.7);border-radius:14px;padding:15px;border:1px solid rgba(90,70,50,.12)}
-table{width:100%;border-collapse:collapse;margin-background:rgba(255,255,255,.65);border-radius:14px;overflow:hidden}
-th,td{padding:11px 13px;border-bottom:1px solid #eadfce;text-align:left}th{background:#efe2d2}tr:last-child td{border-bottom:0}
-.tag{display:inline-block;padding:3px 9px;border-radius:999px;background:#efe2d2;font-size:.85rem;font-weight:700;margin:2px 4px 2px 0}.muted{color:#7a6250;font-size:.93rem}
-@media(max-width:700px){body{padding:14px}main{padding:20px;border-radius:20px}h1{font-size:32px}.mini-grid{grid-template-columns:1fr}table{font-size:.92rem}}
-
 html{scroll-behavior:smooth}
-section[id]{scroll-margin-top:18px}
-.indice{background:linear-gradient(135deg,#fffdf6 0%,#fff7df 100%);border:2px solid #fbbf24}
-.indice-intro{margin-top:-4px;opacity:.82}
-.indice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
-.indice-link{display:flex;align-items:center;justify-content:center;text-align:center;padding:11px 12px;border-radius:999px;background:rgba(255,255,255,.9);border:1px solid #f4cf68;color:inherit;text-decoration:none;font-weight:700;box-shadow:0 3px 10px rgba(120,80,30,.07)}
-.indice-link:hover{transform:translateY(-1px);background:#fff}
-.volver{display:inline-block;margin-color:inherit;font-weight:700;text-decoration:none;opacity:.78}
-.volver:hover{text-decoration:underline}
-.demo-btn{display:inline-block;margin:8px 8px 0 0;padding:10px 14px;border-radius:999px;background:#efe2d2;color:#3d2d22;text-decoration:none;font-weight:800;border:1px solid #d7c2a8}
-.demo-btn:hover{filter:brightness(.98);transform:translateY(-1px)}
-@media(max-width:760px){.indice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:480px){.indice-grid{grid-template-columns:1fr}}
-
-
-.top-btn{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  z-index:9999;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  padding:10px 14px;
-  border-radius:999px;
-  background:#efe2d2;
-  color:#3d2d22;
-  border:2px solid #cdb69a;
-  text-decoration:none;
-  font-weight:800;
-  box-shadow:0 6px 18px rgba(0,0,0,.18);
-  transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+body{
+  margin:0; color:var(--ink); font-family:"Segoe UI",Arial,sans-serif; line-height:1.7;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(127,160,108,.12) 0 80px, transparent 81px),
+    radial-gradient(circle at 92% 7%, rgba(217,172,92,.16) 0 90px, transparent 91px),
+    radial-gradient(circle at 10% 88%, rgba(151,185,133,.16) 0 110px, transparent 111px),
+    linear-gradient(180deg,var(--bg1) 0%, #f8f3e8 35%, var(--bg2) 100%);
 }
-.top-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 9px 22px rgba(0,0,0,.22);
+body::before{
+  content:"🌳  🌲  🌿  🍃  🌳  🌲";
+  position:fixed; inset:auto 0 0 0; height:54px; opacity:.18; letter-spacing:26px; font-size:22px;
+  display:flex; align-items:center; justify-content:center; pointer-events:none; z-index:0;
 }
-@media(max-width:600px){
-  .top-btn{
-    right:12px;
-    bottom:12px;
-    padding:9px 12px;
-    font-size:.9rem;
-  }
+.topbar{
+  position:sticky; top:0; z-index:1000;
+  background:rgba(255,248,238,.92); backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(138,103,76,.12); box-shadow:0 6px 18px rgba(70,50,30,.06);
 }
-
-
-
+.topbar-inner{max-width:1150px; margin:auto; padding:12px 18px; display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+.brand{font-weight:900; color:#583f2a}
+.top-links{display:flex; gap:8px; flex-wrap:wrap}
+.top-links a,.floating a{
+  text-decoration:none; color:#5a412d; font-weight:800; font-size:.92rem;
+  background:#fff7df; border:1px solid #edcf8b; border-radius:999px; padding:8px 13px;
+  box-shadow:0 4px 10px rgba(120,80,30,.06);
 }
-
-
-
-/* ===== navegación flotante compacta ===== */
-.nav-flotante{
-  position:fixed;
-  right:16px;
-  bottom:16px;
-  z-index:1200;
-  display:flex;
-  gap:8px;
-  align-items:center;
+.top-links a:hover,.floating a:hover{transform:translateY(-1px)}
+.layout{max-width:1150px; margin:0 auto; display:grid; grid-template-columns:260px minmax(0,1fr); gap:24px; padding:28px 18px 50px; position:relative; z-index:1}
+.side{
+  position:sticky; top:92px; align-self:start; background:rgba(255,253,247,.9);
+  border:2px solid #f1d59e; border-radius:26px; padding:18px; box-shadow:0 10px 30px rgba(90,70,40,.08)
 }
-.nav-flotante a{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:5px;
-  padding:10px 12px;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:800;
-  font-size:.9rem;
-  line-height:1;
-  box-shadow:0 8px 20px rgba(0,0,0,.18);
-  transition:transform .15s ease, filter .15s ease;
+.side h3{margin:0 0 12px; font-size:1.05rem; color:#6b4b2a}
+.side a{display:block; text-decoration:none; color:var(--ink); padding:9px 12px; border-radius:14px; margin:6px 0; font-weight:700; background:rgba(255,255,255,.65)}
+.side a:hover{background:#fff}
+main{
+  background:var(--paper); border:1px solid rgba(138,103,76,.10);
+  border-radius:34px; padding:34px; box-shadow:0 16px 40px rgba(0,0,0,.08); overflow:hidden; position:relative;
 }
-.nav-flotante a:hover{
-  transform:translateY(-2px);
-  filter:brightness(1.03);
+main::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 5% 10%, rgba(127,160,108,.12) 0 70px, transparent 71px),
+    radial-gradient(circle at 95% 15%, rgba(217,172,92,.15) 0 85px, transparent 86px),
+    radial-gradient(circle at 85% 85%, rgba(151,185,133,.12) 0 110px, transparent 111px);
+  pointer-events:none;
 }
-@media(max-width:600px){
-  .nav-flotante{
-    right:10px;
-    bottom:10px;
-    gap:6px;
-  }
-  .nav-flotante a{
-    padding:9px 10px;
-    font-size:.82rem;
-  }
+header.hero{position:relative; z-index:1; text-align:center; margin-bottom:28px}
+h1{font-size:2.9rem; line-height:1.1; margin:0; color:#3e2e20}
+.subtitle{max-width:760px; margin:14px auto 0; color:var(--muted); font-size:1.08rem}
+.hero-pill{
+  display:inline-flex; gap:8px; align-items:center; margin-top:16px;
+  padding:10px 16px; border-radius:999px; background:#fff7e5; border:1px solid #ecd297; font-weight:800
 }
-
-.nav-flotante a{background:#fff7df;color:#6b4b2a;border:2px solid #f4cf68;}
-
-
-.guia-ejemplo-img{width:100%;max-width:860px;display:block;margin:16px auto 8px;border-radius:18px;border:2px solid #eadcc8;box-shadow:0 10px 28px rgba(110,80,40,.10)}
-.guia-ejemplo-caption{text-align:center;opacity:.85;margin-top:8px}
+section{position:relative; z-index:1; margin-bottom:26px; scroll-margin-top:90px}
+h2{margin:0 0 14px; color:#5a412d; font-size:1.55rem}
+.card,.mini,.example-card{
+  background:rgba(255,255,255,.82); border:1px solid var(--line); border-radius:22px;
+  padding:18px 20px; box-shadow:0 5px 14px rgba(50,40,30,.05); margin:14px 0;
+}
+.card strong{color:#4a3524}
+.grid-2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px}
+.grid-3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+.mini{background:linear-gradient(180deg,#ffffff 0%, #fffdf8 100%)}
+.tag{display:inline-block; padding:5px 10px; border-radius:999px; background:#f1e5d6; margin:4px 6px 0 0; font-weight:700; font-size:.92rem}
+code{background:#f3e5d4; border-radius:9px; padding:3px 8px; font-weight:800}
+.notice{border-left:6px solid var(--gold); background:#fff8eb}
+.leaf{border-left:6px solid var(--leaf); background:#f7fcf3}
+.bits{border-left:6px solid #8b79de; background:#f6f4ff}
+.subs{border-left:6px solid #d88bb2; background:#fff5fb}
+.example-card{
+  background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(247,253,244,.96));
+  border:2px solid #dbe9cf;
+}
+.example-img{
+  width:100%; max-width:860px; display:block; margin:16px auto; border-radius:22px;
+  border:1px solid rgba(90,70,50,.14); box-shadow:0 10px 26px rgba(0,0,0,.10)
+}
+.links{background:rgba(120,160,255,.08); border:2px solid rgba(120,160,255,.32); border-radius:16px; padding:16px}
+.links p{margin:0 0 14px}
+.links a{color:#5c7cff; font-weight:700; word-break:break-word}
+.volver{display:inline-block; text-decoration:none; color:#6f5a49; font-weight:800; margin-top:8px}
+.floating{position:fixed; right:16px; bottom:16px; z-index:1200; display:flex; flex-direction:column; gap:8px}
+.footer{text-align:center; color:#7a6454; padding-top:10px}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .side{position:relative; top:0; order:-1}
+}
+@media (max-width:700px){
+  body{font-size:15px}
+  main{padding:22px; border-radius:24px}
+  h1{font-size:2.15rem}
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  .topbar-inner{padding:10px 12px}
+  .layout{padding:16px 12px 40px}
+}
 </style>
 </head>
-<body id="arriba">
-<main>
+<body id="top">
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">🌳 Bosque virtual · guía</div>
+    <div class="top-links">
+      <a href="#indice">☰ Menú</a>
+      <a href="#ejemplo">👀 Ejemplo</a>
+      <a href="#guias">🔗 Otras guías</a>
+    </div>
+  </div>
+</nav>
 
-<h1>🌳 Guía del Bosque Virtual</h1>
-<div class="subtitle">Colecciona árboles mientras estudias, completas pomodoros, participas en el chat y apoyas el canal ✨</div>
-<section class="indice" id="indice">
-<h2>📚 Ir directamente a...</h2>
-<p class="indice-intro">Pulsa en el apartado que quieras consultar.</p>
-<div class="indice-grid"><a class="indice-link" href="#que-es">🌱 Qué es</a><a class="indice-link" href="#plantacion">🚀 Plantar</a><a class="indice-link" href="#validacion">✅ Validar</a><a class="indice-link" href="#puntos">🛍️ Puntos</a><a class="indice-link" href="#mercado">🔄 Mercado</a><a class="indice-link" href="#bits">💎 Bits</a><a class="indice-link" href="#suscripcion">🎁 Suscripción</a><a class="indice-link" href="#autor">🌟 Autor</a><a class="indice-link" href="#consultas">🔍 Comandos</a><a class="indice-link" href="#album">🏆 Álbum</a><a class="indice-link" href="#guias">🔗 Más guías</a></div>
+<div class="layout">
+  <aside class="side" id="indice">
+    <h3>📚 Ir directamente a…</h3>
+    <a href="#quees">🌱 Qué es</a>
+    <a href="#plantacion">🚀 Plantación</a>
+    <a href="#crecimiento">✅ Validación</a>
+    <a href="#puntos">🛍️ Puntos del canal</a>
+    <a href="#mercado">🔄 Mercado</a>
+    <a href="#bits">💎 Bits</a>
+    <a href="#subs">🎁 Suscripción</a>
+    <a href="#autor">🌟 Árboles de Autor</a>
+    <a href="#colecciones">🔍 Colecciones y comandos</a>
+    <a href="#ejemplo">👀 Ejemplo visual</a>
+    <a href="#guias">🔗 Guías relacionadas</a>
+  </aside>
+
+  <main>
+    <header class="hero">
+      <h1>🌳 Guía del Bosque Virtual</h1>
+      <p class="subtitle">
+        El bosque del canal convierte pomodoros, canjeos y apoyo en una colección visual de árboles.
+        La idea es sencilla: participar, plantar, completar y ver crecer tu álbum poco a poco ✨
+      </p>
+      <div class="hero-pill">🍃 Colecciona árboles · 💚 suma ejemplares · 🌟 enseña tu bosque</div>
+    </header>
+
+    <section id="quees">
+      <h2>🌱 ¿Qué es el Bosque del canal?</h2>
+      <div class="card">
+        Es una colección visual de árboles que vas consiguiendo por participar en el stream.
+        Cada árbol pertenece a una colección y puede repetirse, así que tu bosque no solo crece en variedad:
+        también puede crecer en cantidad.
+      </div>
+      <div class="grid-3">
+        <div class="mini"><strong>🌿 Colecciones</strong><br>Hay varias colecciones: básicas, temáticas, especiales, de suscripción y más.</div>
+        <div class="mini"><strong>🍃 Ejemplares</strong><br>Un mismo árbol puede aparecer varias veces y sumar unidades en tu inventario.</div>
+        <div class="mini"><strong>🏆 Álbum</strong><br>Todo se ve luego en tu bosque visual, con progreso por colección y valor total.</div>
+      </div>
+      <a class="volver" href="#indice">↑ Volver al menú</a>
+    </section>
+
+    <section id="plantacion">
+      <h2>🚀 Cómo participar en una plantación</h2>
+      <div class="card">
+        Cuando se lanza una plantación, puedes unirte con <code>!árbol</code>.
+        Si quieres consultar el estado, también puedes usar <code>!plantando</code> o mirar el panel/overlay del stream.
+      </div>
+      <div class="card notice">
+        La idea general es:
+        te unes a la plantación, llega el momento de completar y, si cumples, el árbol pasa a tu colección.
+      </div>
+      <a class="volver" href="#indice">↑ Volver al menú</a>
+    </section>
+
+    <section id="crecimiento">
+      <h2>✅ Validación y crecimiento</h2>
+      <div class="grid-2">
+        <div class="card leaf">
+          <strong><code>!cumplido</code></strong><br>
+          Si completas el bloque o la acción correspondiente, este comando remata la plantación y te cuenta el árbol.
+        </div>
+        <div class="card notice">
+          <strong><code>!fallé</code></strong><br>
+          Si no has podido completar la plantación, puedes indicarlo y el sistema no te contará ese árbol.
+        </div>
+      </div>
+      <div class="card">
+        Muchas colecciones tienen fases visuales o una evolución propia, pero a ti te basta con una idea:
+        participar y completar es lo que hace crecer tu bosque.
+      </div>
+      <a class="volver" href="#indice">↑ Volver al menú</a>
+    </section>
+
+    <section id="puntos">
+      <h2>🛍️ Árboles elegidos con puntos del canal</h2>
+      <div class="card">
+        Además de las plantaciones normales, hay canjeos con puntos del canal para elegir ciertos árboles o colecciones.
+        Si el canje dice “Elijo Árbol: Colección X”, puedes pedir uno de esa colección.
+      </div>
+      <div class="mini">
+        <strong>Ejemplo de formato:</strong><br>
+        <code>árbol deseado | árbol x2, otro árbol</code><br>
+        <span class="tag">pino_japones | abeto_nevado x2, sauce x3</span>
+      </div>
+      <div class="card">
+        Si ya tienes ese árbol, no pasa nada: se suma como ejemplar repetido.
+      </div>
+      <a class="volver" href="#indice">↑ Volver al menú</a>
+    </section>
+
+    <section id="mercado">
+      <h2>🔄 Mercado de árboles</h2>
+      <div class="card leaf">
+        Con <code>!mercado</code> puedes consultar el funcionamiento general del mercado.
+        La moneda del sistema son las <strong>hojas 🍃</strong>, y cada colección tiene un valor distinto.
+      </div>
+      <div class="card">
+        La idea es muy simple: algunos árboles pueden intercambiarse para conseguir otros más interesantes para ti.
+        Así das salida a repetidos y acercas tu colección a lo que más te apetece completar.
+      </div>
+      <a class="volver" href="#indice">↑ Volver al menú</a>
+    </section>
+
+    <section id="bits">
+      <h2>💎 Árboles y ventajas mediante Bits</h2>
+      <div class="card bits">
+        Algunas recompensas con Bits permiten regar el bosque, conseguir árboles sorpresa, elegir árboles concretos
+        o incluso acceder a opciones más premium del sistema.
+      </div>
+      <div class="card">
+        Es la parte más especial del bosque, pensada para quien quiere empujar la colección con un extra.
+      </div>
+      <a class="volver" href="#indice">↑ Volver al menú</a>
+    </section>
+
+    <section id="subs">
+      <h2>🎁 Regalo por suscripción</h2>
+      <div class="card subs">
+        Las suscripciones también tienen su hueco en el bosque. Existen colecciones exclusivas de suscripción
+        y plantaciones asociadas a quienes apoyan el canal de esa forma.
+      </div>
+      <div class="card">
+        Hay árboles estacionales y colecciones especiales que hacen que el bosque vaya cambiando a lo largo del año.
+      </div>
+      <a class="volver" href="#indice">↑ Volver al menú</a>
+    </section>
+
+    <section id="autor">
+      <h2>🌟 Árboles de Autor</h2>
+      <div class="card">
+        Los Árboles de Autor son una versión más especial y personalizada dentro del sistema.
+        Están pensados como algo poco frecuente y más exclusivo.
+      </div>
+      <div class="card notice">
+        La regla importante aquí es que no todo vale: el sistema mantiene límites para que siga teniendo gracia,
+        coherencia y un punto especial.
+      </div>
+      <a class="volver" href="#indice">↑ Volver al menú</a>
+    </section>
+
+    <section id="colecciones">
+      <h2>🔍 Consultar colecciones y comandos</h2>
+      <div class="grid-2">
+        <div class="card">
+          <strong><code>!colecciones</code></strong><br>
+          Te enseña las colecciones disponibles.
+        </div>
+        <div class="card">
+          <strong><code>!árboles [colección]</code></strong><br>
+          Sirve para consultar qué árboles hay en una colección concreta.
+        </div>
+      </div>
+      <div class="card">
+        Ejemplo: <code>!árboles japonesa</code>
+      </div>
+      <div class="grid-3">
+        <div class="mini"><strong><code>!bosque</code></strong><br>Acceso general a tu bosque visual.</div>
+        <div class="mini"><strong><code>!mercado</code></strong><br>Consulta el mercado.</div>
+        <div class="mini"><strong><code>!rankingbosque</code></strong><br>Mira el ranking de coleccionistas del bosque.</div>
+      </div>
+      <a class="volver" href="#indice">↑ Volver al menú</a>
+    </section>
+
+    <section id="ejemplo">
+      <h2>👀 Tu bosque visual</h2>
+      <div class="example-card">
+        <p>
+          Aquí puedes poner un ejemplo real del bosque para que se entienda de un vistazo cómo se ven las colecciones,
+          los repetidos y el valor total.
+        </p>
+        <img class="example-img" src="assets/image.png" alt="Ejemplo real del bosque visual del canal">
+        <p>
+          Si no se ve la imagen en GitHub Pages, revisa que el archivo exista exactamente en
+          <code>bosque-visual/assets/image.png</code> respetando el nombre en minúsculas.
+        </p>
+        <div>
+          <span class="tag">roble</span>
+          <span class="tag">pino</span>
+          <span class="tag">olivo</span>
+          <span class="tag">abeto</span>
+          <span class="tag">sauce</span>
+        </div>
+      </div>
+      <a class="volver" href="#indice">↑ Volver al menú</a>
+    </section>
+
+    
+<section id="guias">
+  <h2>🔗 Guías relacionadas</h2>
+  <div class="links">
+    <p>🌳 Bosque virtual:<br><a href="https://bibiopotoleando.github.io/bosque-visual/guia_bosque.html">https://bibiopotoleando.github.io/bosque-visual/guia_bosque.html</a></p>
+    <p>📝 Tareas:<br><a href="https://bibiopotoleando.github.io/guia-tareas/guia_tareas.html">https://bibiopotoleando.github.io/guia-tareas/guia_tareas.html</a></p>
+    <p>🎁 Canjeos:<br><a href="https://bibiopotoleando.github.io/guia-canjeos/guia_canjeos.html">https://bibiopotoleando.github.io/guia-canjeos/guia_canjeos.html</a></p>
+    <p>📌 Estados:<br><a href="https://bibiopotoleando.github.io/estados-y-bebidas/estados.html">https://bibiopotoleando.github.io/estados-y-bebidas/estados.html</a></p>
+    <p>☕ Bebidas:<br><a href="https://bibiopotoleando.github.io/estados-y-bebidas/bebidas.html">https://bibiopotoleando.github.io/estados-y-bebidas/bebidas.html</a></p>
+    <p>🎯 Retos:<br><a href="https://bibiopotoleando.github.io/retos/retos.html">https://bibiopotoleando.github.io/retos/retos.html</a></p>
+    <p>🎮 Minijuego:<br><a href="https://bibiopotoleando.github.io/minijuego-guia/index.html">https://bibiopotoleando.github.io/minijuego-guia/index.html</a></p>
+    <p>🏅 Insignias:<br><a href="https://bibiopotoleando.github.io/guia-insignias/guia_insignias.html">https://bibiopotoleando.github.io/guia-insignias/guia_insignias.html</a></p>
+    <p>📦 Material:<br><a href="https://bibiopotoleando.github.io/estados-y-bebidas/material.html">https://bibiopotoleando.github.io/estados-y-bebidas/material.html</a></p>
+    <p>👾 Discord:<br><a href="https://bibiopotoleando.github.io/discord/index.html">https://bibiopotoleando.github.io/discord/index.html</a></p>
+  </div>
+  <a class="volver" href="#indice">↑ Volver al menú</a>
 </section>
 
-<section id="que-es"><h2>🌱 ¿Qué es el Bosque del canal?</h2>
-<div class="card">
-El Bosque Virtual convierte nuestros bloques de estudio en una experiencia cooperativa.
-Durante cada sesión puede crecer un árbol en pantalla y el chat puede unirse para intentar incorporarlo a su colección personal.
-</div>
-<div class="important">
-<strong>Hay tres formas distintas de conseguir árboles:</strong>
-<ul>
-<li><strong>Plantándolos en un pomodoro:</strong> te unes con <code>!árbol</code> y validas al terminar.</li>
-<li><strong>Recibiéndolos mediante Bits:</strong> se añaden directamente a tu colección, sin tener que plantarlos.</li>
-<li><strong>Por suscripción o renovación:</strong> recibes árboles sorpresa directamente en tu inventario.</li>
-</ul>
+
+    <div class="footer">🌳 Hecho para que la guía se entienda rápido y, de paso, quede más cuqui.</div>
+  </main>
 </div>
 
-<div class="card">
-<h3>🌿 Ejemplo rápido</h3>
-Empieza un pomodoro y aparece un <strong>sauce</strong>. Te unes con <code>!árbol</code>, completas la sesión y validas con <code>!cumplido</code>.
-Si la plantación sale bien, el sauce se añade a tu colección. Si ya tenías uno, pasas a tener <strong>2 unidades</strong>.
-Más adelante podrás consultar tu colección, verla en tu álbum visual y, cuando desbloquees el Mercado, decidir si conservas esos ejemplares o los utilizas en un intercambio.
+<div class="floating">
+  <a href="#indice">☰ Menú</a>
+  <a href="#top">↑ Arriba</a>
 </div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-<section id="plantacion"><h2>🚀 Cómo participar en una plantación</h2>
-<div class="card">
-<h3>1. Se abre una nueva sesión</h3>
-Al comenzar un pomodoro, el bot anunciará qué árbol se va a plantar. Puede ser el árbol previsto por defecto,
-uno elegido previamente mediante una recompensa de puntos del canal o un Árbol de Autor especial.
-Las solicitudes aparecen en la cola del HUB y Alba las irá plantando en los siguientes pomodoros disponibles.
-</div>
-<div class="card">
-<h3>2. ¡Únete al equipo!</h3>
-Mientras la inscripción esté abierta, escribe:
-<br><br><code>!árbol</code>
-<span class="command-desc">Te une a la plantación colectiva y añade tu semilla al contador de participantes.</span>
-</div>
-<div class="card">
-<h3>3. Consulta qué está creciendo</h3>
-<code>!infobosque</code> o <code>!plantando</code>
-<span class="command-desc">Muestra la especie que está en pantalla y cuántos guardabosques se han apuntado.</span>
-</div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-<section id="validacion"><h2>✅ Validación y crecimiento</h2>
-<div class="important">
-<strong>¡La honestidad es la base del bosque!</strong>
-Cuando el cronómetro llegue a cero, el bot abrirá un periodo de validación de 2 minutos.
-</div>
-<div class="card">
-<code>!cumplido</code>
-<span class="command-desc">Confirma que has completado tu sesión. Si el árbol crece correctamente, se añadirá a tu inventario. Si ya lo tenías, sumarás otra unidad.</span>
-<code>!fallé</code>
-<span class="command-desc">Úsalo si tuviste que abandonar o te distrajiste demasiado. No hay penalización personal.</span>
-</div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-<section id="puntos"><h2>🛍️ Árboles elegidos con puntos del canal</h2>
-<div class="card">
-En la tienda de Twitch puedes gastar PulpiPuntiños para elegir qué especie se plantará en un próximo pomodoro.
-Cada recompensa corresponde a una colección concreta.
-</div>
-<div class="mini-grid">
-<div class="mini">
-<strong>🌱 Colecciones normales</strong><br>
-El árbol se coloca en la cola del HUB y se planta en una sesión posterior.
-Para conseguirlo debes participar y validar el pomodoro.
-</div>
-<div class="mini">
-<strong>🌸 Colección Suscriptores</strong><br>
-La recompensa <em>Elijo Árbol: Colección Suscriptores</em> cuesta <strong>5.000 puntos</strong>
-y solo puede utilizarla una persona con suscripción activa.<br><br>
-<strong>Durante la plantación puede participar cualquiera:</strong>
-si completa la sesión, una persona suscrita recibe el árbol exclusivo de Suscriptores;
-quien no esté suscrito recibe un árbol aleatorio de la colección Básica.
-Si usa <code>!fallé</code>, no recibe ningún árbol.
-</div>
-</div>
-<div class="card subscriber-card">
-<strong>Árboles mensuales de la colección Suscriptores:</strong><br><br>
-<span class="tag">Julio · Verano</span>
-<span class="tag">Agosto · Lavanda</span>
-<span class="tag">Septiembre · Hidrangea</span>
-<span class="tag">Octubre · Otoño mágico</span>
-<span class="tag">Noviembre · Castañas</span>
-<span class="tag">Diciembre · Navidad</span>
-<span class="tag">Enero · Nieve</span>
-<span class="tag">Febrero · San Valentín</span>
-<span class="tag">Marzo · Sakura</span>
-<span class="tag">Abril · Lluvia</span>
-<span class="tag">Mayo · Flores blancas</span>
-<span class="tag">Junio · Mar</span>
-</div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-
-<section id="mercado"><h2>🔄 Mercado de árboles</h2>
-
-<div class="card">
-El Mercado te permite <strong>intercambiar árboles que ya tienes</strong> por otros árboles del Bosque.
-No utiliza una moneda nueva: las 🍃 solo indican el <strong>valor de intercambio de cada ejemplar</strong>.
-</div>
-
-<div class="important">
-<strong>🔓 ¿Cuándo se desbloquea?</strong><br>
-El Mercado se desbloquea al completar <strong>39 pomodoros</strong>, el equivalente aproximado a una semana completa de sesiones del canal.
-El bot te avisará automáticamente cuando lo consigas y, desde ese momento, queda desbloqueado para siempre.
-No se muestra un contador de progreso.
-</div>
-
-<div class="card">
-<strong>🪙 ¿Cuánto cuesta usarlo?</strong><br>
-Cada operación se realiza mediante la recompensa de Twitch <strong>Mercado de árboles</strong>, que cuesta <strong>500 PulpiPuntiños</strong>.
-Ese canje ya es el coste en puntos del canal: dentro del Mercado no tienes que pagar más puntos.
-</div>
-
-<div class="card">
-<strong>🍃 Valor de cada árbol por unidad</strong>
-<p class="muted">Estos son los valores actuales del Mercado. Si se reajusta la economía del bosque, pueden actualizarse sin cambiar el funcionamiento del sistema.</p>
-<table>
-<thead><tr><th>Colección</th><th>Valor por unidad</th></tr></thead>
-<tbody>
-<tr data-market-row="basica"><td>Básica</td><td class="market-value" data-market="basica">—</td></tr>
-<tr data-market-row="tropical"><td>Tropical</td><td class="market-value" data-market="tropical">—</td></tr>
-<tr data-market-row="desierto"><td>Desierto</td><td class="market-value" data-market="desierto">—</td></tr>
-<tr data-market-row="frutales"><td>Frutales</td><td class="market-value" data-market="frutales">—</td></tr>
-<tr data-market-row="espanola"><td>Española</td><td class="market-value" data-market="espanola">—</td></tr>
-<tr data-market-row="invernal"><td>Invernal</td><td class="market-value" data-market="invernal">—</td></tr>
-<tr data-market-row="familia"><td>Familia</td><td class="market-value" data-market="familia">—</td></tr>
-<tr data-market-row="otonal"><td>Otoñal</td><td class="market-value" data-market="otonal">—</td></tr>
-<tr data-market-row="japonesa"><td>Japonesa</td><td class="market-value" data-market="japonesa">—</td></tr>
-<tr data-market-row="fantastica"><td>Fantástica</td><td class="market-value" data-market="fantastica">—</td></tr>
-<tr data-market-row="suscriptores"><td>Suscriptores</td><td class="market-value" data-market="suscriptores">—</td></tr>
-<tr data-market-row="oposiciones"><td>Oposiciones</td><td class="market-value" data-market="oposiciones">—</td></tr>
-<tr data-market-row="flores"><td>Flores</td><td class="market-value" data-market="flores">—</td></tr>
-<tr data-market-row="autor"><td>Autor</td><td class="market-value" data-market="autor">—</td></tr>
-</tbody>
-</table>
-<p id="market-values-status" class="muted">Cargando valores actuales del Mercado…</p>
-</div>
-
-<div class="card">
-<strong>✍️ ¿Qué escribo en el canjeo?</strong><br><br>
-Usa este formato:
-<br><br>
-<code>árbol deseado | árbol x2, otro árbol</code>
-<br><br>
-Ejemplo:
-<br><br>
-<code>pino_japones | abeto_nevado x2, sauce x3</code>
-<br><br>
-El sistema suma automáticamente el valor 🍃 de los árboles que entregas.
-</div>
-
-<div class="mini-grid">
-<div class="mini">
-<strong>✅ Si llegas al valor</strong><br>
-El intercambio se realiza y los árboles entregados desaparecen de tu inventario.
-El nuevo árbol se añade a tu colección.
-</div>
-<div class="mini">
-<strong>💸 Si te pasas</strong><br>
-El intercambio también se realiza, pero la diferencia no se devuelve.
-El Mercado lo considera una pequeña propina 😂
-</div>
-</div>
-
-<div class="card">
-<strong>❌ Si algo está mal</strong><br>
-Si no tienes el Mercado desbloqueado, el formato es incorrecto, el árbol no existe, no tienes las unidades indicadas o el valor entregado no alcanza el necesario, el canje se rechaza y se te devuelven los <strong>500 PulpiPuntiños</strong>.
-</div>
-
-<div class="card">
-<code>!mercado</code>
-<span class="command-desc">Explica el funcionamiento del Mercado, muestra los valores por unidad y te indica el valor total 🍃 de tu colección actual.</span>
-<p class="muted">Tus 🍃 no son un saldo independiente: representan el valor de los árboles que tienes en ese momento.</p>
-</div>
-
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-<section id="bits"><h2>💎 Árboles y ventajas mediante Bits</h2>
-<div class="card bits-card">
-Los potenciadores personalizados de Bits permiten apoyar el canal y conseguir ventajas relacionadas con el bosque.
-</div>
-<div class="important">
-<strong>Diferencia importante:</strong>
-los árboles adquiridos o regalados mediante Bits se añaden
-<strong>directamente a la colección de la persona destinataria</strong>.
-No se plantan de forma comunitaria y ningún otro usuario puede llevárselos.
-</div>
-<div class="card">
-Entre los potenciadores disponibles están:
-<ul>
-<li>árbol sorpresa;</li>
-<li>árbol elegido;</li>
-<li>packs sorpresa de 3 o 5 árboles;</li>
-<li>regalar una semilla a otra persona;</li>
-<li>impulsar el próximo pomodoro;</li>
-<li>crear un Árbol de Autor.</li>
-</ul>
-Consulta la <strong>Guía de Canjeos</strong> para ver todos los precios y condiciones.
-</div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-<section id="suscripcion"><h2>🎁 Regalo por suscripción</h2>
-<div class="card subscriber-card">
-Al suscribirte, renovar o recibir una suscripción regalada, el bot añade automáticamente árboles sorpresa a tu colección personal.
-El sorteo utiliza todas las colecciones generales, incluida Suscriptores, y deja fuera los Árboles de Autor.
-</div>
-<table>
-<thead><tr><th>Meses acumulados</th><th>Árboles sorpresa recibidos</th></tr></thead>
-<tbody>
-<tr><td>1–2 meses</td><td>1 árbol</td></tr>
-<tr><td>3–4 meses</td><td>2 árboles</td></tr>
-<tr><td>5–6 meses</td><td>3 árboles</td></tr>
-<tr><td>7–8 meses</td><td>4 árboles</td></tr>
-<tr><td>9–10 meses</td><td>5 árboles</td></tr>
-<tr><td>11 meses o más</td><td>6 árboles</td></tr>
-</tbody>
-</table>
-<div class="important">
-Dentro de una misma entrega no se repite la misma especie.
-Sí puede tocarte un árbol que ya tuvieras de otro día: en ese caso se suma una nueva unidad.
-</div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-<section id="autor"><h2>🌟 Árboles de Autor</h2>
-<div class="card premium-card">
-Los Árboles de Autor son diseños únicos creados para una persona de la comunidad.
-Se pueden solicitar mediante la recompensa de puntos del canal o mediante el potenciador de Bits correspondiente.
-La propuesta se revisará antes de diseñarla y programarla.
-</div>
-<div class="important">
-<strong>🎁 Bonus temático:</strong>
-cuando un Árbol de Autor se planta y la sesión sale bien, las personas participantes que validen correctamente
-pueden añadir esa especie exclusiva a su colección.
-</div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-<section id="regla-autor"><h2>⚠️ Regla del 20% en los Árboles de Autor</h2>
-<div class="card">
-<div class="fail-zone">
-<strong>Si más del 20% de las personas inscritas usa <code>!fallé</code>:</strong>
-<ul>
-<li>el Árbol de Autor se considera perdido para la plantación comunitaria;</li>
-<li>nadie del grupo lo recibe, aunque haya cumplido individualmente;</li>
-<li>la persona que adquirió el árbol sí lo conserva si validó con <code>!cumplido</code>.</li>
-</ul>
-</div>
-<p style="margin-font-size:.9em;color:#7a6250;">
-<i>Ejemplo: si participan 10 personas y fallan 3, el porcentaje es del 30%.
-El árbol se pierde para el grupo, pero la persona compradora queda protegida si cumplió.</i>
-</p>
-</div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-<section id="consultas"><h2>🔍 Consultar colecciones</h2>
-<div class="card">
-<code>!colecciones</code>
-<span class="command-desc">Muestra todas las colecciones disponibles y tu progreso en cada una.</span>
-<code>!árboles [colección]</code>
-<span class="command-desc">Enseña las especies de una colección concreta, cuántas unidades tienes y su valor 🍃. Ejemplo: <code>!árboles japonesa</code>.</span>
-<code>!bosque</code>
-<span class="command-desc">Resume cuántos árboles tienes en cada colección y el valor 🍃 total actual de tu bosque.</span>
-<code>!mercado</code>
-<span class="command-desc">Consulta cómo funciona el Mercado, los valores por unidad y el valor total 🍃 de tu colección.</span>
-<code>!rankingbosque</code>
-<span class="command-desc">Consulta el ranking de los bosques más grandes del canal.</span>
-</div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-<section id="album"><h2>🏆 Tu álbum visual</h2>
-<div class="card">
-El bosque cuenta actualmente con <strong>13 colecciones temáticas generales</strong>, además de los Árboles de Autor.
-Cada ejemplar conseguido se guarda en tu inventario y puede acumular unidades. Si tienes el Mercado desbloqueado, puedes decidir intercambiar algunos de esos ejemplares por otros.
-</div>
-<div class="card">
-Para generar el enlace actualizado de tu álbum, utiliza la recompensa
-<strong>Generar tu Bosque Virtual</strong>, disponible por <strong>10.000 puntos</strong>.
-</div>
-
-
-<div class="card">
-  <h3>👀 ¿Cómo se ve un bosque terminado?</h3>
-  <p>Este es un ejemplo real para que se entienda cómo se organizan las colecciones, las unidades repetidas y el valor total del bosque.</p>
-  <div style="margin:18px 0">
-    <img src="assets/image.png" alt="Ejemplo de bosque visual del canal" style="width:100%;max-width:820px;border-radius:18px;border:1px solid rgba(90,70,50,.15);box-shadow:0 8px 24px rgba(0,0,0,.08);display:block;margin:auto">
-  </div>
-  <p style="margin-bottom:8px"><strong>🌱 En la colección Básica, por ejemplo, puedes ver especies como:</strong></p>
-  <div>
-    <span class="tag">roble</span><span class="tag">pino</span><span class="tag">olivo</span><span class="tag">abeto</span><span class="tag">sauce</span>
-  </div>
-</div>
-
-
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-<section id="guias"><h2>🔗 Guías relacionadas</h2>
-<div class="links">
-<p>🌳 Bosque virtual:<br><a href="https://bibiopotoleando.github.io/bosque-visual/guia_bosque.html">https://bibiopotoleando.github.io/bosque-visual/guia_bosque.html</a></p>
-<p>📝 Tareas:<br><a href="https://bibiopotoleando.github.io/guia-tareas/guia_tareas.html">https://bibiopotoleando.github.io/guia-tareas/guia_tareas.html</a></p>
-<p>🎁 Canjeos:<br><a href="https://bibiopotoleando.github.io/guia-canjeos/guia_canjeos.html">https://bibiopotoleando.github.io/guia-canjeos/guia_canjeos.html</a></p>
-<p>📌 Estados:<br><a href="https://bibiopotoleando.github.io/estados-y-bebidas/estados.html">https://bibiopotoleando.github.io/estados-y-bebidas/estados.html</a></p>
-<p>☕ Bebidas:<br><a href="https://bibiopotoleando.github.io/estados-y-bebidas/bebidas.html">https://bibiopotoleando.github.io/estados-y-bebidas/bebidas.html</a></p>
-<p>🎯 Retos:<br><a href="https://bibiopotoleando.github.io/retos/retos.html">https://bibiopotoleando.github.io/retos/retos.html</a></p>
-<p>🎮 Minijuego:<br><a href="https://bibiopotoleando.github.io/minijuego-guia/index.html">https://bibiopotoleando.github.io/minijuego-guia/index.html</a></p>
-<p>🏅 Insignias:<br><a href="https://bibiopotoleando.github.io/guia-insignias/guia_insignias.html">https://bibiopotoleando.github.io/guia-insignias/guia_insignias.html</a></p>
-<p>📦 Material:<br><a href="https://bibiopotoleando.github.io/estados-y-bebidas/material.html">https://bibiopotoleando.github.io/estados-y-bebidas/material.html</a></p>
-<p>👾 Discord:<br><a href="https://bibiopotoleando.github.io/discord/index.html">https://bibiopotoleando.github.io/discord/index.html</a></p>
-</div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
-
-<div class="footer">🌳 Gracias por estudiar con enfoque y hacer crecer el bosque del chat ✨</div>
-</main>
-
-<script>
-(function () {
-  const status = document.getElementById("market-values-status");
-
-  function formatES(value) {
-    const n = Number(value);
-    if (!Number.isFinite(n)) return value;
-    return new Intl.NumberFormat("es-ES", { maximumFractionDigits: 0 }).format(n);
-  }
-
-  async function cargarValoresMercado() {
-    try {
-      // El ?v= evita que GitHub Pages / el navegador enseñen una copia antigua en caché.
-      const response = await fetch("./mercado_valores.txt?v=" + Date.now(), {
-        cache: "no-store"
-      });
-
-      if (!response.ok) {
-        throw new Error("HTTP " + response.status);
-      }
-
-      const text = await response.text();
-      const valores = {};
-
-      text.split(/\r?\n/).forEach(linea => {
-        linea = linea.trim();
-        if (!linea || linea.startsWith("#")) return;
-
-        const partes = linea.split("|");
-        if (partes.length < 2) return;
-
-        const clave = partes[0].trim().toLowerCase();
-        const valor = Number(partes[1].trim());
-
-        if (clave && Number.isFinite(valor)) {
-          valores[clave] = valor;
-        }
-      });
-
-      let actualizados = 0;
-
-      document.querySelectorAll("[data-market]").forEach(celda => {
-        const clave = celda.dataset.market;
-        if (Object.prototype.hasOwnProperty.call(valores, clave)) {
-          celda.textContent = formatES(valores[clave]) + "🍃/ud";
-          actualizados++;
-        }
-      });
-
-      if (status) {
-        if (actualizados > 0) {
-          status.textContent = "Valores cargados automáticamente desde mercado_valores.txt.";
-        } else {
-          status.textContent = "No se encontraron valores válidos en mercado_valores.txt.";
-        }
-      }
-    } catch (error) {
-      console.error("No se pudieron cargar los valores del Mercado:", error);
-      if (status) {
-        status.textContent = "No se pudieron cargar los valores del Mercado en este momento.";
-      }
-    }
-  }
-
-  cargarValoresMercado();
-})();
-</script>
-
-
-<a class="top-btn" href="#arriba" aria-label="Volver arriba">↑ Arriba</a>
-
-
-<div class="nav-flotante" aria-label="Navegación rápida">
-  <a href="#indice" aria-label="Ir al menú de esta guía">☰ Menú</a>
-  <a href="#arriba" aria-label="Volver arriba">↑ Arriba</a>
-</div>
-
 </body>
 </html>
