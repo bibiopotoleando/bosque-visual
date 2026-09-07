@@ -319,6 +319,77 @@ code{
   .nav-flotante{right:10px;bottom:10px}
 }
 
+
+
+/* ===== MENÚ LATERAL FLOTANTE ===== */
+@media (min-width:1101px){
+  body{
+    padding-left:270px;
+  }
+
+  .indice{
+    position:fixed;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:1500;
+    width:232px;
+    max-height:calc(100vh - 36px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    margin:0;
+    padding:15px;
+    border-radius:22px;
+    scrollbar-width:thin;
+  }
+
+  .indice h2{
+    margin:0 0 5px;
+    font-size:1.08rem;
+    line-height:1.2;
+  }
+
+  .indice-intro{
+    margin:0 0 10px;
+    font-size:.78rem;
+    line-height:1.3;
+  }
+
+  .indice-grid{
+    grid-template-columns:1fr;
+    gap:6px;
+    margin-top:0;
+  }
+
+  .indice-link{
+    min-height:0;
+    justify-content:flex-start;
+    text-align:left;
+    padding:7px 10px;
+    border-radius:13px;
+    font-size:.82rem;
+    line-height:1.2;
+  }
+
+  /* Ya no hace falta el botón Menú inferior: el panel está siempre visible */
+  .nav-flotante a[href="#indice"]{
+    display:none;
+  }
+}
+
+/* En pantallas más estrechas el índice vuelve al contenido para no taparlo */
+@media (max-width:1100px){
+  .indice{
+    position:relative;
+    left:auto;
+    top:auto;
+    transform:none;
+    width:auto;
+    max-height:none;
+    overflow:visible;
+  }
+}
+
 </style>
 </head>
 <body id="arriba">
@@ -352,7 +423,7 @@ Empieza un pomodoro y aparece un <strong>sauce</strong>. Te unes con <code>!árb
 Si la plantación sale bien, el sauce se añade a tu colección. Si ya tenías uno, pasas a tener <strong>2 unidades</strong>.
 Más adelante podrás consultar tu colección, verla en tu álbum visual y, cuando desbloquees el Mercado, decidir si conservas esos ejemplares o los utilizas en un intercambio.
 </div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 <section id="plantacion"><h2>🚀 Cómo participar en una plantación</h2>
 <div class="card">
@@ -372,7 +443,7 @@ Mientras la inscripción esté abierta, escribe:
 <code>!infobosque</code> o <code>!plantando</code>
 <span class="command-desc">Muestra la especie que está en pantalla y cuántos guardabosques se han apuntado.</span>
 </div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 <section id="validacion"><h2>✅ Validación y crecimiento</h2>
 <div class="important">
@@ -385,7 +456,7 @@ Cuando el cronómetro llegue a cero, el bot abrirá un periodo de validación de
 <code>!fallé</code>
 <span class="command-desc">Úsalo si tuviste que abandonar o te distrajiste demasiado. No hay penalización personal.</span>
 </div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 <section id="puntos"><h2>🛍️ Árboles elegidos con puntos del canal</h2>
 <div class="card">
@@ -423,7 +494,7 @@ Si usa <code>!fallé</code>, no recibe ningún árbol.
 <span class="tag">Mayo · Flores blancas</span>
 <span class="tag">Junio · Mar</span>
 </div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 
 <section id="mercado"><h2>🔄 Mercado de árboles</h2>
@@ -508,7 +579,7 @@ Si no tienes el Mercado desbloqueado, el formato es incorrecto, el árbol no exi
 <p class="muted">Tus 🍃 no son un saldo independiente: representan el valor de los árboles que tienes en ese momento.</p>
 </div>
 
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 <section id="bits"><h2>💎 Árboles y ventajas mediante Bits</h2>
 <div class="card bits-card">
@@ -532,7 +603,7 @@ Entre los potenciadores disponibles están:
 </ul>
 Consulta la <strong>Guía de Canjeos</strong> para ver todos los precios y condiciones.
 </div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 <section id="suscripcion"><h2>🎁 Regalo por suscripción</h2>
 <div class="card subscriber-card">
@@ -554,7 +625,7 @@ El sorteo utiliza todas las colecciones generales, incluida Suscriptores, y deja
 Dentro de una misma entrega no se repite la misma especie.
 Sí puede tocarte un árbol que ya tuvieras de otro día: en ese caso se suma una nueva unidad.
 </div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 <section id="autor"><h2>🌟 Árboles de Autor</h2>
 <div class="card premium-card">
@@ -567,7 +638,7 @@ La propuesta se revisará antes de diseñarla y programarla.
 cuando un Árbol de Autor se planta y la sesión sale bien, las personas participantes que validen correctamente
 pueden añadir esa especie exclusiva a su colección.
 </div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 <section id="regla-autor"><h2>⚠️ Regla del 20% en los Árboles de Autor</h2>
 <div class="card">
@@ -584,7 +655,7 @@ pueden añadir esa especie exclusiva a su colección.
 El árbol se pierde para el grupo, pero la persona compradora queda protegida si cumplió.</i>
 </p>
 </div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 <section id="consultas"><h2>🔍 Consultar colecciones</h2>
 <div class="card">
@@ -599,7 +670,7 @@ El árbol se pierde para el grupo, pero la persona compradora queda protegida si
 <code>!rankingbosque</code>
 <span class="command-desc">Consulta el ranking de los bosques más grandes del canal.</span>
 </div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 <section id="album"><h2>🏆 Tu álbum visual</h2>
 <div class="card">
@@ -625,7 +696,7 @@ Para generar el enlace actualizado de tu álbum, utiliza la recompensa
 </div>
 
 
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 <section id="guias"><h2>🔗 Guías relacionadas</h2>
 <div class="links">
@@ -640,7 +711,7 @@ Para generar el enlace actualizado de tu álbum, utiliza la recompensa
 <p>📦 Material:<br><a href="https://bibiopotoleando.github.io/estados-y-bebidas/material.html">https://bibiopotoleando.github.io/estados-y-bebidas/material.html</a></p>
 <p>👾 Discord:<br><a href="https://bibiopotoleando.github.io/discord/index.html">https://bibiopotoleando.github.io/discord/index.html</a></p>
 </div>
-<a class="volver" href="#indice">↑ Volver arriba</a></section>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 <div class="footer">🌳 Gracias por estudiar con enfoque y hacer crecer el bosque del chat ✨</div>
 </main>
