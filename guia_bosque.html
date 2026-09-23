@@ -153,6 +153,30 @@ h3{color:#654936}
   background:linear-gradient(135deg,#fbf9ff 0%,#f1edff 100%);
 }
 
+.huerta-card{
+  border:2px solid #a8c98f;
+  background:linear-gradient(135deg,#fbfff5 0%,#eff9e8 100%);
+}
+
+.mundozzoli-card{
+  border:2px solid #9a9de1;
+  background:linear-gradient(135deg,#fcfaff 0%,#edf0ff 100%);
+}
+
+.price-tag{
+  display:inline-block;
+  background:#fffaee;
+  border:1px solid #e6d5ad;
+  border-radius:999px;
+  padding:4px 12px;
+  font-weight:800;
+  margin:7px 0 4px;
+}
+
+.tree-tags{margin-top:10px}
+.tree-tags .tag{background:#fffdf8}
+
+
 .fail-zone{
   border-left:6px solid #dc7b71;
   padding:16px 18px;
@@ -400,7 +424,7 @@ code{
 <section class="indice" id="indice">
 <h2>📚 Ir directamente a...</h2>
 <p class="indice-intro">Pulsa en el apartado que quieras consultar.</p>
-<div class="indice-grid"><a class="indice-link" href="#que-es">🌱 Qué es</a><a class="indice-link" href="#plantacion">🚀 Plantar</a><a class="indice-link" href="#validacion">✅ Validar</a><a class="indice-link" href="#puntos">🛍️ Puntos</a><a class="indice-link" href="#mercado">🔄 Mercado</a><a class="indice-link" href="#bits">💎 Bits</a><a class="indice-link" href="#suscripcion">🎁 Suscripción</a><a class="indice-link" href="#autor">🌟 Autor</a><a class="indice-link" href="#consultas">🔍 Comandos</a><a class="indice-link" href="#album">🏆 Álbum</a><a class="indice-link" href="#guias">🔗 Más guías</a></div>
+<div class="indice-grid"><a class="indice-link" href="#que-es">🌱 Qué es</a><a class="indice-link" href="#plantacion">🚀 Plantar</a><a class="indice-link" href="#validacion">✅ Validar</a><a class="indice-link" href="#puntos">🛍️ Puntos</a><a class="indice-link" href="#nuevas-colecciones">🥕 Huerta y Mundozzoli</a><a class="indice-link" href="#mercado">🔄 Mercado</a><a class="indice-link" href="#bits">💎 Bits</a><a class="indice-link" href="#suscripcion">🎁 Suscripción</a><a class="indice-link" href="#autor">🌟 Autor</a><a class="indice-link" href="#consultas">🔍 Comandos</a><a class="indice-link" href="#album">🏆 Álbum</a><a class="indice-link" href="#guias">🔗 Más guías</a></div>
 </section>
 
 <section id="que-es"><h2>🌱 ¿Qué es el Bosque del canal?</h2>
@@ -461,7 +485,7 @@ Cuando el cronómetro llegue a cero, el bot abrirá un periodo de validación de
 <section id="puntos"><h2>🛍️ Árboles elegidos con puntos del canal</h2>
 <div class="card">
 En la tienda de Twitch puedes gastar PulpiPuntiños para elegir qué especie se plantará en un próximo pomodoro.
-Cada recompensa corresponde a una colección concreta.
+Cada recompensa corresponde a una colección concreta. Las nuevas <strong>Huerta (550 puntos)</strong> y <strong>Mundozzoli (5.500 puntos)</strong> tienen canjes independientes: consulta sus árboles en <a href="#nuevas-colecciones">este apartado</a>.
 </div>
 <div class="mini-grid">
 <div class="mini">
@@ -476,7 +500,8 @@ y solo puede utilizarla una persona con suscripción activa.<br><br>
 <strong>Durante la plantación puede participar cualquiera:</strong>
 si completa la sesión, una persona suscrita recibe el árbol exclusivo de Suscriptores;
 quien no esté suscrito recibe un árbol aleatorio de la colección Básica.
-Si usa <code>!fallé</code>, no recibe ningún árbol.
+Si usa <code>!fallé</code>, no recibe ningún árbol.<br><br>
+<strong>Ojo:</strong> esta excepción solo afecta a la colección Suscriptores, no a Mundozzoli.
 </div>
 </div>
 <div class="card subscriber-card">
@@ -497,6 +522,53 @@ Si usa <code>!fallé</code>, no recibe ningún árbol.
 <a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
 
+<section id="nuevas-colecciones"><h2>🥕🎬 Huerta y Mundozzoli</h2>
+<div class="card">
+  Estas son dos <strong>colecciones independientes</strong>, cada una con su propio canje de puntos de Twitch.
+  Elige uno de sus árboles, escribe el nombre al canjear y Alba lo pondrá en la cola para una próxima plantación.
+  <strong>No se mezclan con Básica ni con Suscriptores.</strong>
+</div>
+<div class="mini-grid">
+  <div class="mini huerta-card">
+    <h3>🥕 Huerta</h3>
+    <p>¡Del huerto al bosque! Cinco verduras con sus propias fases de crecimiento. Elige la que quieras ver crecer durante un pomodoro.</p>
+    <div class="price-tag">550 PulpiPuntiños</div>
+    <p><strong>Canje:</strong> <em>Elijo Árbol: Colección Huerta</em>.</p>
+    <div class="tree-tags">
+      <span class="tag">🧅 Cebolla</span>
+      <span class="tag">🍅 Tomate</span>
+      <span class="tag">🍆 Berenjena</span>
+      <span class="tag">🌶️ Pimientos de Padrón</span>
+      <span class="tag">🥬 Lechuga</span>
+    </div>
+    <p class="muted">Ejemplos de texto: <code>tomate</code> o <code>pimientos_padron</code>.</p>
+  </div>
+  <div class="mini mundozzoli-card">
+    <h3>🎬 Mundozzoli</h3>
+    <p>Una colección dedicada a <strong>Paula (@opozzoli)</strong>, seguidora del canal y también streamer, que reúne árboles inspirados en <strong>sus películas favoritas de animación</strong>. ¡Ocho mundos de película en un mismo bosque!</p>
+    <div class="price-tag">5.500 PulpiPuntiños</div>
+    <p><strong>Canje:</strong> <em>Elijo Árbol: Colección Mundozzoli</em>.</p>
+    <div class="tree-tags">
+      <span class="tag">El castillo ambulante</span>
+      <span class="tag">Spirit</span>
+      <span class="tag">El viaje de Chihiro</span>
+      <span class="tag">Mi vecino Totoro</span>
+      <span class="tag">Shrek</span>
+      <span class="tag">La princesa Mononoke</span>
+      <span class="tag">Cómo entrenar a tu dragón</span>
+      <span class="tag">Toy Story</span>
+    </div>
+    <p class="muted">Ejemplos de texto: <code>totoro</code>, <code>chihiro</code> o <code>entrenar_dragon</code>.</p>
+  </div>
+</div>
+<div class="important">
+  <strong>🌱 ¿Quién se lleva el árbol?</strong> En estas dos colecciones puede participar cualquier persona.
+  Si completas la plantación y validas correctamente, recibes el árbol que se haya plantado.
+  <strong>Mundozzoli no tiene la regla exclusiva de Suscriptores:</strong> no hace falta ser sub para conseguir sus árboles mediante una plantación.
+</div>
+<p class="muted">Cada planta tiene dos fases jóvenes y una forma final propias. Además de canjearlas, puedes consultar sus ejemplares con <code>!árboles huerta</code> y <code>!árboles mundozzoli</code>.</p>
+<a class="volver" href="#arriba">↑ Volver arriba</a></section>
+
 <section id="mercado"><h2>🔄 Mercado de árboles</h2>
 
 <div class="card">
@@ -513,7 +585,7 @@ No se muestra un contador de progreso.
 
 <div class="card">
 <strong>🪙 ¿Cuánto cuesta usarlo?</strong><br>
-Cada operación se realiza mediante la recompensa de Twitch <strong>Mercado de árboles</strong>, que cuesta <strong>500 PulpiPuntiños</strong>.
+Cada operación se realiza mediante la recompensa de Twitch <strong>Mercado de árboles</strong>, que cuesta <strong>850 PulpiPuntiños</strong>.
 Ese canje ya es el coste en puntos del canal: dentro del Mercado no tienes que pagar más puntos.
 </div>
 
@@ -522,12 +594,12 @@ Ese canje ya es el coste en puntos del canal: dentro del Mercado no tienes que p
 <strong>🌱 Sin suscripción activa</strong><br>
 Puedes <strong>conseguir cualquier árbol del Mercado</strong>, también los de las colecciones más valiosas.
 La diferencia está en el pago: solo puedes entregar ejemplares de
-<strong>Básica, Tropical, Desierto, Frutales, Española e Invernal</strong>.
+<strong>Básica, Tropical, Desierto, Frutales, Española e Invernal</strong>. Huerta y Mundozzoli también se pueden conseguir, pero no están entre las colecciones que puedes <em>entregar como pago</em> sin suscripción.
 </div>
 <div class="mini subscriber-card">
 <strong>⭐ Con suscripción activa</strong><br>
 También puedes conseguir cualquier árbol, pero además puedes
-<strong>usar como pago ejemplares de cualquier colección</strong> de tu inventario.
+<strong>usar como pago ejemplares de cualquier colección</strong> de tu inventario, incluidas Huerta y Mundozzoli.
 Así es mucho más fácil aprovechar árboles valiosos que te sobren.
 </div>
 </div>
@@ -540,27 +612,29 @@ Por ejemplo, una persona sin suscripción puede conseguir un árbol de Oposicion
 
 <div class="card">
 <strong>🍃 Valor de cada árbol por unidad</strong>
-<p class="muted">Estos son los valores actuales del Mercado. Si se reajusta la economía del bosque, pueden actualizarse sin cambiar el funcionamiento del sistema.</p>
+<p class="muted">Estos son los valores actuales del Mercado. En la versión publicada, la tabla se actualiza desde <code>mercado_valores.txt</code>, que debe estar junto a esta página; mientras tanto se muestran los últimos valores conocidos.</p>
 <table>
 <thead><tr><th>Colección</th><th>Valor por unidad</th></tr></thead>
 <tbody>
-<tr data-market-row="basica"><td>Básica</td><td class="market-value" data-market="basica">—</td></tr>
-<tr data-market-row="tropical"><td>Tropical</td><td class="market-value" data-market="tropical">—</td></tr>
-<tr data-market-row="desierto"><td>Desierto</td><td class="market-value" data-market="desierto">—</td></tr>
-<tr data-market-row="frutales"><td>Frutales</td><td class="market-value" data-market="frutales">—</td></tr>
-<tr data-market-row="espanola"><td>Española</td><td class="market-value" data-market="espanola">—</td></tr>
-<tr data-market-row="invernal"><td>Invernal</td><td class="market-value" data-market="invernal">—</td></tr>
-<tr data-market-row="familia"><td>Familia</td><td class="market-value" data-market="familia">—</td></tr>
-<tr data-market-row="otonal"><td>Otoñal</td><td class="market-value" data-market="otonal">—</td></tr>
-<tr data-market-row="japonesa"><td>Japonesa</td><td class="market-value" data-market="japonesa">—</td></tr>
-<tr data-market-row="fantastica"><td>Fantástica</td><td class="market-value" data-market="fantastica">—</td></tr>
-<tr data-market-row="suscriptores"><td>Suscriptores</td><td class="market-value" data-market="suscriptores">—</td></tr>
-<tr data-market-row="oposiciones"><td>Oposiciones</td><td class="market-value" data-market="oposiciones">—</td></tr>
-<tr data-market-row="flores"><td>Flores</td><td class="market-value" data-market="flores">—</td></tr>
-<tr data-market-row="autor"><td>Autor</td><td class="market-value" data-market="autor">—</td></tr>
+<tr data-market-row="basica"><td>Básica</td><td class="market-value" data-market="basica">5🍃/ud</td></tr>
+<tr data-market-row="huerta"><td>Huerta</td><td class="market-value" data-market="huerta">55🍃/ud</td></tr>
+<tr data-market-row="tropical"><td>Tropical</td><td class="market-value" data-market="tropical">105🍃/ud</td></tr>
+<tr data-market-row="desierto"><td>Desierto</td><td class="market-value" data-market="desierto">115🍃/ud</td></tr>
+<tr data-market-row="frutales"><td>Frutales</td><td class="market-value" data-market="frutales">120🍃/ud</td></tr>
+<tr data-market-row="espanola"><td>Española</td><td class="market-value" data-market="espanola">125🍃/ud</td></tr>
+<tr data-market-row="invernal"><td>Invernal</td><td class="market-value" data-market="invernal">130🍃/ud</td></tr>
+<tr data-market-row="familia"><td>Familia</td><td class="market-value" data-market="familia">190🍃/ud</td></tr>
+<tr data-market-row="otonal"><td>Otoñal</td><td class="market-value" data-market="otonal">195🍃/ud</td></tr>
+<tr data-market-row="japonesa"><td>Japonesa</td><td class="market-value" data-market="japonesa">295🍃/ud</td></tr>
+<tr data-market-row="fantastica"><td>Fantástica</td><td class="market-value" data-market="fantastica">430🍃/ud</td></tr>
+<tr data-market-row="suscriptores"><td>Suscriptores</td><td class="market-value" data-market="suscriptores">525🍃/ud</td></tr>
+<tr data-market-row="mundozzoli"><td>Mundozzoli</td><td class="market-value" data-market="mundozzoli">550🍃/ud</td></tr>
+<tr data-market-row="oposiciones"><td>Oposiciones</td><td class="market-value" data-market="oposiciones">560🍃/ud</td></tr>
+<tr data-market-row="flores"><td>Flores</td><td class="market-value" data-market="flores">825🍃/ud</td></tr>
+<tr data-market-row="autor"><td>Autor</td><td class="market-value" data-market="autor">13.250🍃/ud</td></tr>
 </tbody>
 </table>
-<p id="market-values-status" class="muted">Cargando valores actuales del Mercado…</p>
+<p id="market-values-status" class="muted">Valores de referencia actuales. Se actualizarán automáticamente si mercado_valores.txt está disponible junto a esta guía.</p>
 </div>
 
 <div class="card">
@@ -573,7 +647,7 @@ Ejemplo:
 <br><br>
 <code>pino_japones | abeto_nevado x2, sauce x3</code>
 <br><br>
-El sistema suma automáticamente el valor 🍃 de los árboles que entregas.
+El sistema suma automáticamente el valor 🍃 de los árboles que entregas. El canje admite los nombres internos; por ejemplo, <code>totoro</code> o <code>pimientos_padron</code>.
 </div>
 
 <div class="mini-grid">
@@ -591,7 +665,7 @@ El Mercado se queda la diferencia como propina. No da cambio; tiene sus costumbr
 
 <div class="card">
 <strong>❌ Si algo está mal</strong><br>
-Si no tienes el Mercado desbloqueado, el formato es incorrecto, el árbol no existe, no tienes las unidades indicadas, intentas usar como pago una colección no permitida para tu situación o el valor entregado no alcanza el necesario, el canje se rechaza y se te devuelven los <strong>500 PulpiPuntiños</strong>.
+Si no tienes el Mercado desbloqueado, el formato es incorrecto, el árbol no existe, no tienes las unidades indicadas, intentas usar como pago una colección no permitida para tu situación o el valor entregado no alcanza el necesario, el canje se rechaza y se te devuelven los <strong>850 PulpiPuntiños</strong>.
 </div>
 
 <div class="card">
@@ -629,7 +703,7 @@ Consulta la <strong>Guía de Canjeos</strong> para ver todos los precios y condi
 <section id="suscripcion"><h2>🎁 Regalo por suscripción</h2>
 <div class="card subscriber-card">
 Al suscribirte, renovar o recibir una suscripción regalada, el bot añade automáticamente árboles sorpresa a tu colección personal.
-El sorteo utiliza todas las colecciones generales, incluida Suscriptores, y deja fuera los Árboles de Autor.
+El sorteo utiliza las colecciones configuradas, incluidas Huerta, Mundozzoli y Suscriptores, y deja fuera los Árboles de Autor.
 </div>
 <table>
 <thead><tr><th>Meses acumulados</th><th>Árboles sorpresa recibidos</th></tr></thead>
@@ -683,7 +757,7 @@ El árbol se pierde para el grupo, pero la persona compradora queda protegida si
 <code>!colecciones</code>
 <span class="command-desc">Muestra todas las colecciones disponibles y tu progreso en cada una.</span>
 <code>!árboles [colección]</code>
-<span class="command-desc">Enseña las especies de una colección concreta, cuántas unidades tienes y su valor 🍃. Ejemplo: <code>!árboles japonesa</code>.</span>
+<span class="command-desc">Enseña las especies de una colección concreta, cuántas unidades tienes y su valor 🍃. Ejemplos: <code>!árboles japonesa</code>, <code>!árboles huerta</code> y <code>!árboles mundozzoli</code>.</span>
 <code>!bosque</code>
 <span class="command-desc">Resume cuántos árboles tienes en cada colección y el valor 🍃 total actual de tu bosque.</span>
 <code>!mercado</code>
@@ -695,7 +769,7 @@ El árbol se pierde para el grupo, pero la persona compradora queda protegida si
 
 <section id="album"><h2>🏆 Tu álbum visual</h2>
 <div class="card">
-El bosque cuenta actualmente con <strong>13 colecciones temáticas generales</strong>, además de los Árboles de Autor.
+El bosque cuenta actualmente con <strong>15 colecciones</strong> (incluidas Huerta, Mundozzoli y Suscriptores), además de los Árboles de Autor.
 Cada ejemplar conseguido se guarda en tu inventario y puede acumular unidades. Si tienes el Mercado desbloqueado, puedes decidir intercambiar algunos de esos ejemplares por otros.
 </div>
 <div class="card">
@@ -714,6 +788,8 @@ Para generar el enlace actualizado de tu álbum, utiliza la recompensa
   <div>
     <span class="tag">roble</span><span class="tag">pino</span><span class="tag">olivo</span><span class="tag">abeto</span><span class="tag">sauce</span>
   </div>
+  <p><strong>🥕 Huerta:</strong> cebolla, tomate, berenjena, pimientos de Padrón y lechuga.<br>
+  <strong>🎬 Mundozzoli:</strong> ocho árboles de las películas favoritas de Paula (@opozzoli).</p>
 </div>
 
 
@@ -734,7 +810,7 @@ Para generar el enlace actualizado de tu álbum, utiliza la recompensa
 </div>
 <a class="volver" href="#arriba">↑ Volver arriba</a></section>
 
-<div class="footer">🌳 Gracias por estudiar con enfoque y hacer crecer el bosque del chat ✨</div>
+<div class="footer">🌳 Gracias por estudiar con enfoque y hacer crecer el bosque del chat ✨ · Guía actualizada: septiembre de 2026</div>
 </main>
 
 <script>
@@ -796,7 +872,7 @@ Para generar el enlace actualizado de tu álbum, utiliza la recompensa
     } catch (error) {
       console.error("No se pudieron cargar los valores del Mercado:", error);
       if (status) {
-        status.textContent = "No se pudieron cargar los valores del Mercado en este momento.";
+        status.textContent = "Se muestran los últimos valores incluidos en esta guía; no se pudo comprobar mercado_valores.txt en este momento.";
       }
     }
   }
